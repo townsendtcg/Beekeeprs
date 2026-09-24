@@ -77,17 +77,19 @@ def pairs(w):
     return [v for _, v in sorted(d.items()) if len(v) == 2]
 
 # ---------- lineup math ----------
-def optimal(m):
-    """Best legal lineup from the full roster (greedy, strictest slots first)."""
-    pp = m["players_points"]
+def best_lineup(pp, roster):
+    """Best legal lineup total from a roster, given points per player (greedy, strictest slots first)."""
     order = sorted(SLOTS, key=lambda s: len(POSOK.get(s, {s})))
-    avail = sorted(m["players"], key=lambda p: -pp.get(p, 0))
+    avail = sorted(roster, key=lambda p: -pp.get(p, 0))
     used, tot = set(), 0.0
     for s in order:
         for p in avail:
             if p not in used and pos(p) in POSOK.get(s, {s}):
                 used.add(p); tot += pp.get(p, 0); break
     return round(tot, 2)
+
+def optimal(m):
+    return best_lineup(m["players_points"], m["players"])
 
 def worst_bench_swap(m):
     """Biggest single bench-over-starter miss for an eligible slot."""
@@ -102,6 +104,21 @@ def worst_bench_swap(m):
                     best = (bp, sp, gap)
     return best
 
+# ---------- projections ----------
+_proj_cache = {}
+def projections(w):
+    if w not in _proj_cache:
+        rows = get(f"/projections/nfl/{season}/{w}?season_type=regular&position[]=QB&position[]=RB"
+                   "&position[]=WR&position[]=TE&position[]=K&position[]=DEF")
+        _proj_cache[w] = {p["player_id"]: sum(v * S[k] for k, v in (p.get("stats") or {}).items()
+                                              if k in S and isinstance(v, (int, float))) for p in rows}
+    return _proj_cache[w]
+
+def strength(w):
+    """Projected best-lineup points for each team in week w, from the roster they had that week."""
+    pj = projections(w)
+    return {m["roster_id"]: best_lineup(pj, m["players"]) for m in M[w]}
+
 # ---------- results ----------
 res = {w: {} for w in range(1, COMPLETED + 1)}
 for w in res:
@@ -113,6 +130,8 @@ def ranking(thru):
     rows = {}
     pts = [res[w][r][0] for w in range(1, thru + 1) for r in IDS]
     mu, sd = st.mean(pts), st.pstdev(pts) or 1
+    nxt = strength(thru + 1)  # full-strength projection for the week ahead
+    pmu, psd = st.mean(nxt.values()), st.pstdev(nxt.values()) or 1
     recent = [w for w in range(max(1, thru - 2), thru + 1)]
     n = len(IDS) - 1
     for r in IDS:
@@ -125,12 +144,13 @@ def ranking(thru):
         apn = n * thru
         wts = {w: (2 if w in recent else 1) for w in wk}  # last 3 weeks count double
         form = sum(res[w][r][0] * wts[w] for w in wk) / sum(wts.values())
-        score = (0.25 * (wins + 0.5 * ties) / thru + 0.30 * apw / apn
-                 + 0.30 * (0.5 + 0.2 * (form - mu) / sd)
-                 + 0.15 * (0.5 + 0.2 * (pa / thru - mu) / sd))
+        score = (0.20 * (wins + 0.5 * ties) / thru + 0.25 * apw / apn
+                 + 0.25 * (0.5 + 0.2 * (form - mu) / sd)
+                 + 0.20 * (0.5 + 0.2 * (nxt[r] - pmu) / psd)
+                 + 0.10 * (0.5 + 0.2 * (pa / thru - mu) / sd))
         xw = apw / n  # expected wins if you played everyone every week
         rows[r] = dict(w=wins, l=thru - wins - ties, t=ties, pf=pf, pa=pa, apw=apw,
-                       apl=apn - apw, score=score, xw=xw, luck=wins + 0.5 * ties - xw)
+                       apl=apn - apw, score=score, xw=xw, strength=nxt[r], luck=wins + 0.5 * ties - xw)
     for i, r in enumerate(sorted(IDS, key=lambda r: -rows[r]["score"])):
         rows[r]["rank"] = i + 1
     return rows
@@ -178,12 +198,8 @@ lucky_win = max([g["w"] for g in recap], key=lambda s: week_rank[s["rid"]])
 heartbreak = min([g["l"] for g in recap], key=lambda s: week_rank[s["rid"]])
 
 # ---------- preview ----------
-proj = {p["player_id"]: p.get("stats", {}) for p in get(
-    f"/projections/nfl/{season}/{W}?season_type=regular&position[]=QB&position[]=RB"
-    "&position[]=WR&position[]=TE&position[]=K&position[]=DEF")}
-
 def proj_pts(pid):
-    return sum(v * S[k] for k, v in proj.get(pid, {}).items() if k in S and isinstance(v, (int, float)))
+    return projections(W).get(pid, 0)
 
 def phi(z):
     return 0.5 * (1 + math.erf(z / math.sqrt(2)))
@@ -288,7 +304,7 @@ for r in sorted(IDS, key=lambda r: R[r]["rank"]):
       <div class="cell"><span>{x['rank']}</span></div>
       <div class="rbody">
         <div class="rhead">{who(r)}{movement(r)}</div>
-        <p class="stats"><b>{rec_str(r)}</b> &middot; {f2(x['pf'])} PF &middot; all-play {x['apw']}-{x['apl']}</p>
+        <p class="stats"><b>{rec_str(r)}</b> &middot; {f2(x['pf'])} PF &middot; all-play {x['apw']}-{x['apl']} &middot; Wk {W} full strength {x['strength']:.1f}</p>
         <p>{E(note('blurbs', r) or auto_blurb(r))}</p>
       </div>
     </li>""")
@@ -374,6 +390,9 @@ for i, g in enumerate(pv):
         extra = f'<p class="q">Injury watch: {E(", ".join(qs))}</p>' if qs else ""
         empties = [team[s["rid"]]["name"] for s in (a, b) if s["empty"]]
         extra += f'<p class="q">Empty lineup spots: {E(", ".join(empties))}</p>' if empties else ""
+        gaps = [(team[s["rid"]]["name"], R[s["rid"]]["strength"] - s["proj"]) for s in (a, b)]
+        gaps = [f"{E(n)} has {d:.1f} more projected points available on the bench" for n, d in gaps if d >= 3]
+        extra += f'<p class="q"><b>Lineup check:</b> {"; ".join(gaps)}.</p>' if gaps else ""
     n = note("preview", g["mid"])
     preview_html.append(f"""
     <article class="pick">
