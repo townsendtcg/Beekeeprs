@@ -2,11 +2,13 @@ name: Weekly report
 
 on:
   schedule:
-    - cron: "0 14 * * 3"   # Wednesdays 14:00 UTC (10am ET)
+    - cron: "0 12 * * 2"   # Tuesday 8am ET: last week's recap, right after Monday night
+    - cron: "0 18 * * 4"   # Thursday 2pm ET: refreshed odds before the first game
+    - cron: "0 14 * * 0"   # Sunday 10am ET: final odds with Sunday lineups
   workflow_dispatch:
     inputs:
       week:
-        description: "Preview week to build (leave blank to auto-detect)"
+        description: "Week to build (leave blank for the latest)"
         required: false
   push:
     branches: [main]
@@ -33,5 +35,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add docs
           git diff --cached --quiet && echo "No changes" && exit 0
-          git commit -m "Weekly report update"
+          git commit -m "Report update"
           git push

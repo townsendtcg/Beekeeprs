@@ -5,100 +5,197 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{{TITLE}}</title>
 <meta property="og:title" content="{{TITLE}}">
-<meta property="og:description" content="Power rankings, Week {{DONE}} recap and Week {{WEEK}} moneylines.">
+<meta property="og:description" content="Power rankings, Week {{DONE}} recap, bench pain, luck meter and Week {{WEEK}} moneylines.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐝</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --honey:#F5B51B; --comb:#FFE08A; --ink:#2E1C0C; --wax:#FFFDF7; --line:#E7D7A8;
+  --honey:#F5B51B; --comb:#FFE08A; --ink:#2E1C0C; --wax:#FFFDF7; --card:#FFF8E4; --line:#E7D7A8;
   --up:#2F7D4A; --down:#A8321E; --muted:#6B5536;
-  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  box-sizing:border-box; padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --wax:#1F160C; --ink:#FFF3D6; --line:#4A3719; --muted:#CDB68C; --comb:#3A2A10; --up:#6FD08F; --down:#FF8A73;}}
-:root[data-theme="dark"]{--wax:#1F160C; --ink:#FFF3D6; --line:#4A3719; --muted:#CDB68C; --comb:#3A2A10; --up:#6FD08F; --down:#FF8A73;}
+  --wax:#1F160C; --card:#2A1E10; --ink:#FFF3D6; --line:#4A3719; --muted:#CDB68C; --comb:#3A2A10; --up:#6FD08F; --down:#FF8A73;}}
+:root[data-theme="dark"]{--wax:#1F160C; --card:#2A1E10; --ink:#FFF3D6; --line:#4A3719; --muted:#CDB68C; --comb:#3A2A10; --up:#6FD08F; --down:#FF8A73;}
 *,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 3.5rem);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 body{margin:0;background:var(--wax);color:var(--ink);font:17px/1.55 "Atkinson Hyperlegible",system-ui,sans-serif}
 h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.1;margin:0}
-header{background:var(--honey);color:#2E1C0C;padding:2.5rem 1.25rem 3.5rem;
-  clip-path:polygon(0 0,100% 0,100% calc(100% - 1.5rem),75% 100%,50% calc(100% - 1.5rem),25% 100%,0 calc(100% - 1.5rem))}
-header .wrap{max-width:46rem;margin:0 auto}
-header p.league{margin:0 0 .5rem;font-weight:700}
-header h1{font-size:clamp(2.6rem,11vw,5.2rem);font-weight:800;letter-spacing:-.03em}
-header p.intro{max-width:34rem;margin:1rem 0 0;font-size:1.05rem}
-main{max-width:46rem;margin:0 auto;padding:1rem 1.25rem 4rem}
-section{margin-top:3rem}
-h2{font-size:1.9rem;font-weight:800;margin-bottom:.4rem}
-.sub{color:var(--muted);margin:0 0 1.25rem;max-width:40rem}
-ol.ranks{list-style:none;margin:0;padding:0}
-.rank{display:grid;grid-template-columns:3.2rem 1fr;gap:1rem;padding:1.1rem 0;border-top:1px solid var(--line)}
-.cell{width:3.2rem;height:3.6rem;background:var(--honey);color:#2E1C0C;display:grid;place-items:center;
-  clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);font:800 1.4rem "Bricolage Grotesque",sans-serif}
-.rank:nth-child(n+4) .cell{background:var(--comb);color:var(--ink)}
-.rhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem .6rem}
-.rhead h3{font-size:1.3rem}
-.mgr,small{color:var(--muted);font-weight:400;font-size:.85rem}
-.mv{font-weight:700;font-size:.85rem;margin-left:auto}
-.up{color:var(--up)} .down{color:var(--down)} .same{color:var(--muted)}
-.rbody p{margin:.3rem 0 0}
-.stats{font-size:.92rem;color:var(--muted)}
-.stats b{color:var(--ink)}
-.game,.pick{padding:1rem 0;border-top:1px solid var(--line)}
-.line{display:flex;justify-content:space-between;gap:1rem;font-size:1.05rem}
-.line.win{font-weight:700}
-.line.win .sc::before{content:"W ";color:var(--up);font-size:.8rem}
-.sc{font-variant-numeric:tabular-nums;white-space:nowrap}
-.tops{color:var(--muted);font-size:.92rem;margin:.4rem 0 .2rem}
-.game p,.pick p{margin:.35rem 0 0}
-dl.awards{display:grid;grid-template-columns:auto 1fr;gap:.5rem 1rem;margin:0;padding:1rem 1.1rem;background:var(--comb);border-radius:4px}
-dl.awards dt{font-weight:700} dl.awards dd{margin:0}
-ul.pain{padding-left:1.1rem;margin:.5rem 0 0} ul.pain li{margin:.5rem 0}
-.tag{font:800 1rem "Bricolage Grotesque",sans-serif;color:var(--down)}
-.odds>div{display:grid;grid-template-columns:1fr auto auto;gap:.9rem;align-items:baseline;padding:.25rem 0}
-.odds .tn{font-weight:700}
-.ml{font:800 1.35rem "Bricolage Grotesque",sans-serif;font-variant-numeric:tabular-nums;min-width:4.5ch;text-align:right}
-.pj{color:var(--muted);font-size:.85rem;min-width:7ch;text-align:right}
-.q{font-size:.88rem;color:var(--muted)}
-footer{max-width:46rem;margin:0 auto;padding:0 1.25rem 3rem;color:var(--muted);font-size:.85rem}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--honey);outline-offset:2px}
-@media (max-width:420px){.odds>div{grid-template-columns:1fr auto}.pj{grid-column:1/-1;text-align:left}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+header{background:var(--honey);color:#2E1C0C;padding:calc(env(safe-area-inset-top,0px) + 2rem) 1.25rem 3.25rem;
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 1.5rem),75% 100%,50% calc(100% - 1.5rem),25% 100%,0 calc(100% - 1.5rem))}
+.wrap{max-width:46rem;margin:0 auto}
+.toprow{display:flex;align-items:center;gap:.5rem;margin:0 0 .4rem}
+header p.league{margin:0;font-weight:700;margin-right:auto}
+header h1{font-size:clamp(2.6rem,11vw,5.2rem);font-weight:800;letter-spacing:-.03em}
+header p.intro{max-width:34rem;margin:.8rem 0 0;font-size:1.05rem}
+ol.stories{list-style:none;margin:1.4rem 0 0;padding:0;display:grid;gap:.6rem}
+ol.stories li{background:#FFF4CC;border-radius:6px;padding:.7rem .9rem;display:grid;gap:.1rem;color:#2E1C0C}
+ol.stories b{font:800 1.05rem "Bricolage Grotesque",sans-serif}
+@media (min-width:640px){ol.stories{grid-template-columns:1fr 1fr}}
+
+nav.top{position:sticky;top:0;z-index:5;background:var(--wax);border-bottom:1px solid var(--line);
+  padding:env(safe-area-inset-top,0px) 0 0}
+nav.top .wrap{display:flex;justify-content:space-between;gap:.1rem;padding:.4rem .75rem;overflow-x:auto;scrollbar-width:none}
+nav.top a{text-decoration:none;font-weight:700;font-size:.92rem;padding:.4rem .45rem;border-radius:4px;white-space:nowrap}
+nav.top a:hover{background:var(--comb)}
+.wk{position:relative}
+.wk select{font:inherit;font-weight:700;font-size:.9rem;background:#FFF4CC;color:#2E1C0C;border:1px solid #C98F00;border-radius:4px;padding:.3rem .4rem}
+a.latest{font-weight:700;font-size:.9rem;color:#2E1C0C;background:#FFF4CC;border:1px solid #C98F00;border-radius:4px;padding:.3rem .55rem;text-decoration:none}
+
+main{max-width:46rem;margin:0 auto;padding:.5rem 1.25rem 4rem}
+section{margin-top:2.75rem}
+h2{font-size:1.9rem;font-weight:800;margin-bottom:.4rem}
+.sub{color:var(--muted);margin:0 0 1.1rem;max-width:40rem;font-size:.95rem}
+
+/* avatars */
+.av{--s:2.4rem;position:relative;flex:none;width:var(--s);height:var(--s);border-radius:50%;background:var(--tc);
+  color:#fff;display:inline-grid;place-items:center;font:800 .85rem "Bricolage Grotesque",sans-serif;
+  box-shadow:0 0 0 2px var(--wax),0 0 0 4px var(--tc);overflow:hidden}
+.av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.av.sm{--s:1.6rem;font-size:.6rem;box-shadow:0 0 0 2px var(--tc);margin-right:.45rem;vertical-align:middle}
+.who{display:flex;align-items:center;gap:.7rem;min-width:0}
+.nm{display:grid;min-width:0}
+.nm b{font-size:1.05rem;line-height:1.2}
+small{color:var(--muted);font-weight:400;font-size:.82rem}
+
+/* rankings */
+ol.ranks{list-style:none;margin:0;padding:0}
+.rank{display:grid;grid-template-columns:2.8rem 1fr;gap:.9rem;padding:1rem 0;border-top:1px solid var(--line)}
+.cell{width:2.8rem;height:3.15rem;background:var(--comb);color:var(--ink);display:grid;place-items:center;
+  clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);font:800 1.25rem "Bricolage Grotesque",sans-serif}
+.rank:nth-child(-n+3) .cell{background:var(--honey);color:#2E1C0C}
+.rhead{display:flex;align-items:center;gap:.6rem}
+.mv{font-weight:700;font-size:.85rem;margin-left:auto;white-space:nowrap}
+.up{color:var(--up)} .down{color:var(--down)} .same{color:var(--muted)}
+.rbody p{margin:.35rem 0 0}
+.stats{font-size:.9rem;color:var(--muted)} .stats b{color:var(--ink)}
+
+/* recap */
+.toggle{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:1rem}
+.toggle button{font:inherit;font-weight:700;font-size:.9rem;background:none;color:var(--ink);border:0;padding:.45rem .8rem;cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--honey);color:#2E1C0C}
+.game{background:var(--card);border-radius:8px;padding:1rem;margin-bottom:.8rem}
+.side{display:grid;grid-template-columns:1fr auto;align-items:center;gap:.3rem .8rem;padding:.3rem 0}
+.side .bar{grid-column:1/-1;height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.side .bar i{display:block;height:100%;background:var(--tc);transition:width .4s ease}
+.sc{font:800 1.5rem "Bricolage Grotesque",sans-serif;font-variant-numeric:tabular-nums;white-space:nowrap}
+.wtag{visibility:hidden;font-size:.75rem;color:var(--up);margin-right:.35rem;vertical-align:middle}
+.side.win .wtag{visibility:visible}
+.tops{color:var(--muted);font-size:.9rem;margin:.5rem 0 .2rem}
+.game p{margin:.35rem 0 0}
+.bestnote{display:none;font-weight:700}
+.best .bestnote{display:block}
+.best .game.flip{box-shadow:inset 4px 0 0 var(--down)}
+
+/* awards */
+dl.awards{display:grid;grid-template-columns:repeat(auto-fill,minmax(12.5rem,1fr));gap:.6rem;margin:1.6rem 0 0}
+.award{background:var(--comb);border-radius:6px;padding:.7rem .85rem}
+.award dt{font:800 1rem "Bricolage Grotesque",sans-serif}
+.award dd{margin:.15rem 0 0}
+
+/* bench pain */
+ul.pain{list-style:none;margin:0;padding:0}
+ul.pain li{padding:.85rem 0;border-top:1px solid var(--line)}
+ul.pain li.bad{box-shadow:inset 4px 0 0 var(--down);padding-left:.8rem}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:.8rem}
+.lost{display:grid;text-align:right}
+.lost b{font:800 1.4rem "Bricolage Grotesque",sans-serif;font-variant-numeric:tabular-nums;line-height:1}
+ul.pain p{margin:.45rem 0 0}
+.verdict{font-weight:700}
+li.bad .verdict{color:var(--down)}
+/* luck */
+ul.luck{list-style:none;margin:0;padding:0}
+ul.luck li{display:grid;grid-template-columns:minmax(0,1fr) 7rem;grid-template-areas:"who lk" "meter meter";gap:.4rem .8rem;padding:.8rem 0;border-top:1px solid var(--line)}
+ul.luck .who{grid-area:who} .lk{grid-area:lk;text-align:right;display:grid}
+.meter{grid-area:meter;position:relative;height:10px;background:var(--line);border-radius:5px}
+.meter::after{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;width:2px;background:var(--muted)}
+.meter i{position:absolute;top:0;bottom:0;border-radius:5px}
+.meter i.pos{background:var(--up)} .meter i.neg{background:var(--down)}
+
+/* preview */
+.pick{padding:1rem 0;border-top:1px solid var(--line)}
+.pick p{margin:.4rem 0 0}
+.tag{font:800 1rem "Bricolage Grotesque",sans-serif;color:var(--down);margin:0 0 .3rem!important}
+.oline{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:.8rem;align-items:center;padding:.3rem 0}
+.ml{font:800 1.35rem "Bricolage Grotesque",sans-serif;font-variant-numeric:tabular-nums;min-width:4.5ch;text-align:right}
+.pj{color:var(--muted);font-size:.85rem;min-width:7.5ch;text-align:right}
+.q{font-size:.88rem;color:var(--muted)}
+@media (max-width:440px){.oline{grid-template-columns:minmax(0,1fr) auto}.pj{grid-column:1/-1;text-align:left;padding-left:3.1rem}}
+footer{max-width:46rem;margin:0 auto;padding:0 1.25rem 3rem;color:var(--muted);font-size:.85rem}
 </style>
 </head>
 <body>
 <header><div class="wrap">
-  <p class="league">{{LEAGUE}}</p>
+  <div class="toprow"><p class="league">{{LEAGUE}}</p>{{WEEKNAV}}</div>
   <h1>Week {{WEEK}}</h1>
   <p class="intro">{{INTRO}}</p>
+  <ol class="stories">{{STORIES}}</ol>
 </div></header>
+<nav class="top" aria-label="Sections"><div class="wrap">
+  <a href="#rankings">Rankings</a><a href="#recap">Recap</a><a href="#bench">Bench</a><a href="#luck">Luck</a><a href="#preview">Preview</a>
+</div></nav>
 <main>
   <section id="rankings">
     <h2>Power rankings</h2>
-    <p class="sub">Score = 30% all-play win rate, 30% scoring with the last 3 weeks counted double, 25% actual win rate, 15% points against (a tougher schedule gets a small bump). Movement compares to last week's ranking under the same formula.</p>
+    <p class="sub">30% all-play win rate, 30% scoring (last 3 weeks count double), 25% actual win rate, 15% points against, so a tougher schedule gets a small bump.</p>
     <ol class="ranks">{{RANKS}}</ol>
   </section>
+
   <section id="recap">
     <h2>Week {{DONE}} recap</h2>
-    {{RECAP}}
-    <h2 style="margin-top:2rem;font-size:1.4rem">Superlatives</h2>
-    <dl class="awards">
-      <dt>High score</dt><dd>{{HI}}</dd>
-      <dt>Low score</dt><dd>{{LO}}</dd>
-      <dt>Closest</dt><dd>{{CLOSE}}</dd>
-      <dt>Blowout</dt><dd>{{BLOW}}</dd>
-    </dl>
-    <h2 style="margin-top:2rem;font-size:1.4rem">Hall of bench pain</h2>
-    <ul class="pain">{{PAIN}}</ul>
+    <div class="toggle" role="group" aria-label="Score view">
+      <button type="button" data-mode="actual" aria-pressed="true">Actual</button>
+      <button type="button" data-mode="best" aria-pressed="false">Best lineups</button>
+    </div>
+    <div id="games">{{RECAP}}</div>
+    <dl class="awards">{{AWARDS}}</dl>
   </section>
+
+  <section id="bench">
+    <h2>Hall of bench pain</h2>
+    <p class="sub">Each team's worst single call: a bench player who outscored someone they could have replaced.</p>
+    {{PAIN}}
+  </section>
+
+  <section id="luck">
+    <h2>Luck meter</h2>
+    <p class="sub">Actual wins compared to expected wins, which is what your weekly scores would earn if you played every team every week.</p>
+    <ul class="luck">{{LUCK}}</ul>
+  </section>
+
   <section id="preview">
-    <h2>Week {{WEEK}} preview</h2>
-    <p class="sub">Moneylines come from Sleeper's projections for each current starting lineup, scored with league settings, then turned into win odds (normal curve, {{SD}}-point spread on the margin, no vig). Lineups change, so these will too.</p>
+    <h2>{{PREVIEW_TITLE}}</h2>
+    <p class="sub">{{PREVIEW_SUB}}</p>
     {{PREVIEW}}
   </section>
 </main>
 <footer>Data from the Sleeper API. Updated {{UPDATED}}.</footer>
+<script>
+(function(){
+  var games=document.getElementById('games');
+  function apply(mode){
+    games.classList.toggle('best',mode==='best');
+    document.querySelectorAll('.toggle button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.mode===mode)});
+    games.querySelectorAll('.game').forEach(function(g){
+      var sides=[].slice.call(g.querySelectorAll('.side')),vals=sides.map(function(s){return parseFloat(s.dataset[mode])});
+      var top=vals[0]>=vals[1]?0:1;
+      sides.forEach(function(s,i){
+        s.querySelector('.num').textContent=(+vals[i].toFixed(2)).toString();
+        s.classList.toggle('win',i===top);
+        var bar=s.querySelector('.bar i');bar.style.width=bar.dataset[mode==='best'?'b':'a']+'%';
+      });
+    });
+  }
+  document.querySelectorAll('.toggle button').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.mode)})});
+  apply('actual');
+})();
+</script>
 </body>
 </html>
