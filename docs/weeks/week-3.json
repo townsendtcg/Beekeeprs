@@ -1,0 +1,168 @@
+{
+  "preview_week": 3,
+  "completed_week": 2,
+  "rankings": {
+    "EZ-Bee-Z": {
+      "w": 0,
+      "l": 2,
+      "t": 0,
+      "pf": 188.68,
+      "pa": 199.72,
+      "apw": 4,
+      "apl": 14,
+      "score": 0.2141,
+      "rank": 10
+    },
+    "Mayo Clinic": {
+      "w": 1,
+      "l": 1,
+      "t": 0,
+      "pf": 189.5,
+      "pa": 202.94,
+      "apw": 3,
+      "apl": 15,
+      "score": 0.3251,
+      "rank": 8
+    },
+    "Mr. Facilitator": {
+      "w": 1,
+      "l": 1,
+      "t": 0,
+      "pf": 228.66,
+      "pa": 195.58,
+      "apw": 7,
+      "apl": 11,
+      "score": 0.4295,
+      "rank": 7
+    },
+    "Yugi Muto": {
+      "w": 1,
+      "l": 1,
+      "t": 0,
+      "pf": 216.06,
+      "pa": 255.82,
+      "apw": 8,
+      "apl": 10,
+      "score": 0.4648,
+      "rank": 5
+    },
+    "Butter Boys": {
+      "w": 1,
+      "l": 1,
+      "t": 0,
+      "pf": 289.44,
+      "pa": 267.84,
+      "apw": 14,
+      "apl": 4,
+      "score": 0.6493,
+      "rank": 3
+    },
+    "The Meatsticks": {
+      "w": 0,
+      "l": 2,
+      "t": 0,
+      "pf": 213.54,
+      "pa": 245.14,
+      "apw": 6,
+      "apl": 12,
+      "score": 0.2981,
+      "rank": 9
+    },
+    "Trust the process": {
+      "w": 1,
+      "l": 1,
+      "t": 0,
+      "pf": 245.12,
+      "pa": 240.28,
+      "apw": 11,
+      "apl": 7,
+      "score": 0.5374,
+      "rank": 4
+    },
+    "The real Mr Ez": {
+      "w": 2,
+      "l": 0,
+      "t": 0,
+      "pf": 193.38,
+      "pa": 176.7,
+      "apw": 4,
+      "apl": 14,
+      "score": 0.4569,
+      "rank": 6
+    },
+    "KINGS LANDING 🏆": {
+      "w": 1,
+      "l": 1,
+      "t": 0,
+      "pf": 309.98,
+      "pa": 307.68,
+      "apw": 15,
+      "apl": 3,
+      "score": 0.709,
+      "rank": 2
+    },
+    "The Fellowship": {
+      "w": 2,
+      "l": 0,
+      "t": 0,
+      "pf": 334.98,
+      "pa": 317.64,
+      "apw": 18,
+      "apl": 0,
+      "score": 0.9159,
+      "rank": 1
+    }
+  },
+  "preview": [
+    {
+      "EZ-Bee-Z": {
+        "proj": 94.5,
+        "ml": "+323"
+      },
+      "Mr. Facilitator": {
+        "proj": 118.9,
+        "ml": "-323"
+      }
+    },
+    {
+      "Mayo Clinic": {
+        "proj": 107.6,
+        "ml": "+306"
+      },
+      "KINGS LANDING 🏆": {
+        "proj": 130.9,
+        "ml": "-306"
+      }
+    },
+    {
+      "Yugi Muto": {
+        "proj": 129.8,
+        "ml": "-112"
+      },
+      "The Meatsticks": {
+        "proj": 127.4,
+        "ml": "+112"
+      }
+    },
+    {
+      "Butter Boys": {
+        "proj": 124.8,
+        "ml": "-235"
+      },
+      "Trust the process": {
+        "proj": 106.8,
+        "ml": "+235"
+      }
+    },
+    {
+      "The real Mr Ez": {
+        "proj": 97.1,
+        "ml": "+1254"
+      },
+      "The Fellowship": {
+        "proj": 146.3,
+        "ml": "-1254"
+      }
+    }
+  ]
+}
