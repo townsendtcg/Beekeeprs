@@ -38,8 +38,9 @@ def matchups(w):
 def done(ms):
     return bool(ms) and all((m.get("points") or 0) > 0 for m in ms)
 
-W = int(os.environ.get("WEEK", 0)) or state["week"]
-if not os.environ.get("WEEK") and done(matchups(W)):
+FORCED = os.environ.get("WEEK", "").strip()
+W = int(FORCED) if FORCED else state["week"]
+if not FORCED and done(matchups(W)):
     W += 1  # state hasn't flipped yet; that week is already final
 COMPLETED = W - 1
 M = {w: matchups(w) for w in range(1, W + 1)}
