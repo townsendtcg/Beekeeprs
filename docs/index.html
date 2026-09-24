@@ -5,250 +5,429 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Serendipitous Beekeeprs: Week 3</title>
 <meta property="og:title" content="Serendipitous Beekeeprs: Week 3">
-<meta property="og:description" content="Power rankings, Week 2 recap and Week 3 moneylines.">
+<meta property="og:description" content="Power rankings, Week 2 recap, bench pain, luck meter and Week 3 moneylines.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐝</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --honey:#F5B51B; --comb:#FFE08A; --ink:#2E1C0C; --wax:#FFFDF7; --line:#E7D7A8;
+  --honey:#F5B51B; --comb:#FFE08A; --ink:#2E1C0C; --wax:#FFFDF7; --card:#FFF8E4; --line:#E7D7A8;
   --up:#2F7D4A; --down:#A8321E; --muted:#6B5536;
-  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  box-sizing:border-box; padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --wax:#1F160C; --ink:#FFF3D6; --line:#4A3719; --muted:#CDB68C; --comb:#3A2A10; --up:#6FD08F; --down:#FF8A73;}}
-:root[data-theme="dark"]{--wax:#1F160C; --ink:#FFF3D6; --line:#4A3719; --muted:#CDB68C; --comb:#3A2A10; --up:#6FD08F; --down:#FF8A73;}
+  --wax:#1F160C; --card:#2A1E10; --ink:#FFF3D6; --line:#4A3719; --muted:#CDB68C; --comb:#3A2A10; --up:#6FD08F; --down:#FF8A73;}}
+:root[data-theme="dark"]{--wax:#1F160C; --card:#2A1E10; --ink:#FFF3D6; --line:#4A3719; --muted:#CDB68C; --comb:#3A2A10; --up:#6FD08F; --down:#FF8A73;}
 *,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 3.5rem);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 body{margin:0;background:var(--wax);color:var(--ink);font:17px/1.55 "Atkinson Hyperlegible",system-ui,sans-serif}
 h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.1;margin:0}
-header{background:var(--honey);color:#2E1C0C;padding:2.5rem 1.25rem 3.5rem;
-  clip-path:polygon(0 0,100% 0,100% calc(100% - 1.5rem),75% 100%,50% calc(100% - 1.5rem),25% 100%,0 calc(100% - 1.5rem))}
-header .wrap{max-width:46rem;margin:0 auto}
-header p.league{margin:0 0 .5rem;font-weight:700}
-header h1{font-size:clamp(2.6rem,11vw,5.2rem);font-weight:800;letter-spacing:-.03em}
-header p.intro{max-width:34rem;margin:1rem 0 0;font-size:1.05rem}
-main{max-width:46rem;margin:0 auto;padding:1rem 1.25rem 4rem}
-section{margin-top:3rem}
-h2{font-size:1.9rem;font-weight:800;margin-bottom:.4rem}
-.sub{color:var(--muted);margin:0 0 1.25rem;max-width:40rem}
-ol.ranks{list-style:none;margin:0;padding:0}
-.rank{display:grid;grid-template-columns:3.2rem 1fr;gap:1rem;padding:1.1rem 0;border-top:1px solid var(--line)}
-.cell{width:3.2rem;height:3.6rem;background:var(--honey);color:#2E1C0C;display:grid;place-items:center;
-  clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);font:800 1.4rem "Bricolage Grotesque",sans-serif}
-.rank:nth-child(n+4) .cell{background:var(--comb);color:var(--ink)}
-.rhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem .6rem}
-.rhead h3{font-size:1.3rem}
-.mgr,small{color:var(--muted);font-weight:400;font-size:.85rem}
-.mv{font-weight:700;font-size:.85rem;margin-left:auto}
-.up{color:var(--up)} .down{color:var(--down)} .same{color:var(--muted)}
-.rbody p{margin:.3rem 0 0}
-.stats{font-size:.92rem;color:var(--muted)}
-.stats b{color:var(--ink)}
-.game,.pick{padding:1rem 0;border-top:1px solid var(--line)}
-.line{display:flex;justify-content:space-between;gap:1rem;font-size:1.05rem}
-.line.win{font-weight:700}
-.line.win .sc::before{content:"W ";color:var(--up);font-size:.8rem}
-.sc{font-variant-numeric:tabular-nums;white-space:nowrap}
-.tops{color:var(--muted);font-size:.92rem;margin:.4rem 0 .2rem}
-.game p,.pick p{margin:.35rem 0 0}
-dl.awards{display:grid;grid-template-columns:auto 1fr;gap:.5rem 1rem;margin:0;padding:1rem 1.1rem;background:var(--comb);border-radius:4px}
-dl.awards dt{font-weight:700} dl.awards dd{margin:0}
-ul.pain{padding-left:1.1rem;margin:.5rem 0 0} ul.pain li{margin:.5rem 0}
-.tag{font:800 1rem "Bricolage Grotesque",sans-serif;color:var(--down)}
-.odds>div{display:grid;grid-template-columns:1fr auto auto;gap:.9rem;align-items:baseline;padding:.25rem 0}
-.odds .tn{font-weight:700}
-.ml{font:800 1.35rem "Bricolage Grotesque",sans-serif;font-variant-numeric:tabular-nums;min-width:4.5ch;text-align:right}
-.pj{color:var(--muted);font-size:.85rem;min-width:7ch;text-align:right}
-.q{font-size:.88rem;color:var(--muted)}
-footer{max-width:46rem;margin:0 auto;padding:0 1.25rem 3rem;color:var(--muted);font-size:.85rem}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--honey);outline-offset:2px}
-@media (max-width:420px){.odds>div{grid-template-columns:1fr auto}.pj{grid-column:1/-1;text-align:left}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+header{background:var(--honey);color:#2E1C0C;padding:calc(env(safe-area-inset-top,0px) + 2rem) 1.25rem 3.25rem;
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 1.5rem),75% 100%,50% calc(100% - 1.5rem),25% 100%,0 calc(100% - 1.5rem))}
+.wrap{max-width:46rem;margin:0 auto}
+.toprow{display:flex;align-items:center;gap:.5rem;margin:0 0 .4rem}
+header p.league{margin:0;font-weight:700;margin-right:auto}
+header h1{font-size:clamp(2.6rem,11vw,5.2rem);font-weight:800;letter-spacing:-.03em}
+header p.intro{max-width:34rem;margin:.8rem 0 0;font-size:1.05rem}
+ol.stories{list-style:none;margin:1.4rem 0 0;padding:0;display:grid;gap:.6rem}
+ol.stories li{background:#FFF4CC;border-radius:6px;padding:.7rem .9rem;display:grid;gap:.1rem;color:#2E1C0C}
+ol.stories b{font:800 1.05rem "Bricolage Grotesque",sans-serif}
+@media (min-width:640px){ol.stories{grid-template-columns:1fr 1fr}}
+
+nav.top{position:sticky;top:0;z-index:5;background:var(--wax);border-bottom:1px solid var(--line);
+  padding:env(safe-area-inset-top,0px) 0 0}
+nav.top .wrap{display:flex;justify-content:space-between;gap:.1rem;padding:.4rem .75rem;overflow-x:auto;scrollbar-width:none}
+nav.top a{text-decoration:none;font-weight:700;font-size:.92rem;padding:.4rem .45rem;border-radius:4px;white-space:nowrap}
+nav.top a:hover{background:var(--comb)}
+.wk{position:relative}
+.wk select{font:inherit;font-weight:700;font-size:.9rem;background:#FFF4CC;color:#2E1C0C;border:1px solid #C98F00;border-radius:4px;padding:.3rem .4rem}
+a.latest{font-weight:700;font-size:.9rem;color:#2E1C0C;background:#FFF4CC;border:1px solid #C98F00;border-radius:4px;padding:.3rem .55rem;text-decoration:none}
+
+main{max-width:46rem;margin:0 auto;padding:.5rem 1.25rem 4rem}
+section{margin-top:2.75rem}
+h2{font-size:1.9rem;font-weight:800;margin-bottom:.4rem}
+.sub{color:var(--muted);margin:0 0 1.1rem;max-width:40rem;font-size:.95rem}
+
+/* avatars */
+.av{--s:2.4rem;position:relative;flex:none;width:var(--s);height:var(--s);border-radius:50%;background:var(--tc);
+  color:#fff;display:inline-grid;place-items:center;font:800 .85rem "Bricolage Grotesque",sans-serif;
+  box-shadow:0 0 0 2px var(--wax),0 0 0 4px var(--tc);overflow:hidden}
+.av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.av.sm{--s:1.6rem;font-size:.6rem;box-shadow:0 0 0 2px var(--tc);margin-right:.45rem;vertical-align:middle}
+.who{display:flex;align-items:center;gap:.7rem;min-width:0}
+.nm{display:grid;min-width:0}
+.nm b{font-size:1.05rem;line-height:1.2}
+small{color:var(--muted);font-weight:400;font-size:.82rem}
+
+/* rankings */
+ol.ranks{list-style:none;margin:0;padding:0}
+.rank{display:grid;grid-template-columns:2.8rem 1fr;gap:.9rem;padding:1rem 0;border-top:1px solid var(--line)}
+.cell{width:2.8rem;height:3.15rem;background:var(--comb);color:var(--ink);display:grid;place-items:center;
+  clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);font:800 1.25rem "Bricolage Grotesque",sans-serif}
+.rank:nth-child(-n+3) .cell{background:var(--honey);color:#2E1C0C}
+.rhead{display:flex;align-items:center;gap:.6rem}
+.mv{font-weight:700;font-size:.85rem;margin-left:auto;white-space:nowrap}
+.up{color:var(--up)} .down{color:var(--down)} .same{color:var(--muted)}
+.rbody p{margin:.35rem 0 0}
+.stats{font-size:.9rem;color:var(--muted)} .stats b{color:var(--ink)}
+
+/* recap */
+.toggle{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:1rem}
+.toggle button{font:inherit;font-weight:700;font-size:.9rem;background:none;color:var(--ink);border:0;padding:.45rem .8rem;cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--honey);color:#2E1C0C}
+.game{background:var(--card);border-radius:8px;padding:1rem;margin-bottom:.8rem}
+.side{display:grid;grid-template-columns:1fr auto;align-items:center;gap:.3rem .8rem;padding:.3rem 0}
+.side .bar{grid-column:1/-1;height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.side .bar i{display:block;height:100%;background:var(--tc);transition:width .4s ease}
+.sc{font:800 1.5rem "Bricolage Grotesque",sans-serif;font-variant-numeric:tabular-nums;white-space:nowrap}
+.wtag{visibility:hidden;font-size:.75rem;color:var(--up);margin-right:.35rem;vertical-align:middle}
+.side.win .wtag{visibility:visible}
+.tops{color:var(--muted);font-size:.9rem;margin:.5rem 0 .2rem}
+.game p{margin:.35rem 0 0}
+.bestnote{display:none;font-weight:700}
+.best .bestnote{display:block}
+.best .game.flip{box-shadow:inset 4px 0 0 var(--down)}
+
+/* awards */
+dl.awards{display:grid;grid-template-columns:repeat(auto-fill,minmax(12.5rem,1fr));gap:.6rem;margin:1.6rem 0 0}
+.award{background:var(--comb);border-radius:6px;padding:.7rem .85rem}
+.award dt{font:800 1rem "Bricolage Grotesque",sans-serif}
+.award dd{margin:.15rem 0 0}
+
+/* bench pain */
+ul.pain{list-style:none;margin:0;padding:0}
+ul.pain li{padding:.85rem 0;border-top:1px solid var(--line)}
+ul.pain li.bad{box-shadow:inset 4px 0 0 var(--down);padding-left:.8rem}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:.8rem}
+.lost{display:grid;text-align:right}
+.lost b{font:800 1.4rem "Bricolage Grotesque",sans-serif;font-variant-numeric:tabular-nums;line-height:1}
+ul.pain p{margin:.45rem 0 0}
+.verdict{font-weight:700}
+li.bad .verdict{color:var(--down)}
+/* luck */
+ul.luck{list-style:none;margin:0;padding:0}
+ul.luck li{display:grid;grid-template-columns:minmax(0,1fr) 7rem;grid-template-areas:"who lk" "meter meter";gap:.4rem .8rem;padding:.8rem 0;border-top:1px solid var(--line)}
+ul.luck .who{grid-area:who} .lk{grid-area:lk;text-align:right;display:grid}
+.meter{grid-area:meter;position:relative;height:10px;background:var(--line);border-radius:5px}
+.meter::after{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;width:2px;background:var(--muted)}
+.meter i{position:absolute;top:0;bottom:0;border-radius:5px}
+.meter i.pos{background:var(--up)} .meter i.neg{background:var(--down)}
+
+/* preview */
+.pick{padding:1rem 0;border-top:1px solid var(--line)}
+.pick p{margin:.4rem 0 0}
+.tag{font:800 1rem "Bricolage Grotesque",sans-serif;color:var(--down);margin:0 0 .3rem!important}
+.oline{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:.8rem;align-items:center;padding:.3rem 0}
+.ml{font:800 1.35rem "Bricolage Grotesque",sans-serif;font-variant-numeric:tabular-nums;min-width:4.5ch;text-align:right}
+.pj{color:var(--muted);font-size:.85rem;min-width:7.5ch;text-align:right}
+.q{font-size:.88rem;color:var(--muted)}
+@media (max-width:440px){.oline{grid-template-columns:minmax(0,1fr) auto}.pj{grid-column:1/-1;text-align:left;padding-left:3.1rem}}
+footer{max-width:46rem;margin:0 auto;padding:0 1.25rem 3rem;color:var(--muted);font-size:.85rem}
 </style>
 </head>
 <body>
 <header><div class="wrap">
-  <p class="league">Serendipitous Beekeeprs</p>
+  <div class="toprow"><p class="league">Serendipitous Beekeeprs</p><label class="wk"><span class="sr">Choose week</span><select onchange="location.href=this.value"><option value="weeks/week-2.html">Week 2</option><option value="weeks/week-3.html" selected>Week 3</option></select></label></div>
   <h1>Week 3</h1>
-  <p class="intro">Week 2 is final and Week 3 kicks off tonight. Two teams are still perfect, two are still winless, and four of the five Week 2 losers had a winning lineup sitting on their bench.</p>
+  <p class="intro">Week 2 is in the books. Two teams are still perfect and two are still looking for their first win.</p>
+  <ol class="stories"><li><b>Closest call</b><span>Yugi Muto beat EZ-Bee-Z by 0.26.</span></li><li><b>Self-inflicted</b><span>EZ-Bee-Z benched Tre Tucker (20.4) and lost by 0.26. 4 of 5 losers had a winning lineup on the bench.</span></li><li><b>Fraud watch</b><span>The real Mr Ez is 2-0 with a 4-14 all-play record.</span></li><li><b>Up next</b><span>Yugi Muto vs The Meatsticks. Yugi Muto -112, The Meatsticks +112.</span></li></ol>
 </div></header>
+<nav class="top" aria-label="Sections"><div class="wrap">
+  <a href="#rankings">Rankings</a><a href="#recap">Recap</a><a href="#bench">Bench</a><a href="#luck">Luck</a><a href="#preview">Preview</a>
+</div></nav>
 <main>
   <section id="rankings">
     <h2>Power rankings</h2>
-    <p class="sub">Score = 30% all-play win rate, 30% scoring with the last 3 weeks counted double, 25% actual win rate, 15% points against (a tougher schedule gets a small bump). Movement compares to last week's ranking under the same formula.</p>
+    <p class="sub">30% all-play win rate, 30% scoring (last 3 weeks count double), 25% actual win rate, 15% points against, so a tougher schedule gets a small bump.</p>
     <ol class="ranks">
-    <li class="rank">
+    <li class="rank" style="--tc:#9C6644">
       <div class="cell"><span>1</span></div>
       <div class="rbody">
-        <div class="rhead"><h3>The Fellowship</h3><span class="mgr">Yaak</span><span class="mv same">No change</span></div>
-        <p class="stats"><b>2-0</b> record, <b>334.98</b> PF, 317.64 PA, all-play 18-0</p>
-        <p>Perfect 18-0 in all-play and the most points in the league. They&#x27;ve already beaten the #2 and #3 teams. Nobody else is close.</p>
+        <div class="rhead"><span class="who"><span class="av md" style="--tc:#9C6644" aria-hidden="true"><span>TF</span><img src="https://sleepercdn.com/avatars/thumbs/22b89c1f067ebca743f3802fe0daa1f8" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>The Fellowship</b><small>Yaak</small></span></span><span class="mv same">No change</span></div>
+        <p class="stats"><b>2-0</b> &middot; 334.98 PF &middot; all-play 18-0</p>
+        <p>Already beat the #2 and #3 teams. The only unbeaten team that has fully earned it.</p>
       </div>
     </li>
-    <li class="rank">
+    <li class="rank" style="--tc:#3D5A80">
       <div class="cell"><span>2</span></div>
       <div class="rbody">
-        <div class="rhead"><h3>KINGS LANDING 🏆</h3><span class="mgr">ATowns</span><span class="mv up">Up 2</span></div>
-        <p class="stats"><b>1-1</b> record, <b>309.98</b> PF, 307.68 PA, all-play 15-3</p>
-        <p>Josh Allen dropped 46.82, the biggest individual game of the week. Still left 39.3 points on the bench, most in the league, with Kelce&#x27;s 25.1 sitting behind Goedert&#x27;s 1.4.</p>
+        <div class="rhead"><span class="who"><span class="av md" style="--tc:#3D5A80" aria-hidden="true"><span>KL</span><img src="https://sleepercdn.com/uploads/e6464c70284f5eb41ca9d2af33f6fd13.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>KINGS LANDING 🏆</b><small>ATowns</small></span></span><span class="mv up">Up 2</span></div>
+        <p class="stats"><b>1-1</b> &middot; 309.98 PF &middot; all-play 15-3</p>
+        <p>Josh Allen&#x27;s 46.82 was the best individual game of the week. The scary part is the 39.3 points still sitting on the bench.</p>
       </div>
     </li>
-    <li class="rank">
+    <li class="rank" style="--tc:#6A4C93">
       <div class="cell"><span>3</span></div>
       <div class="rbody">
-        <div class="rhead"><h3>Butter Boys</h3><span class="mgr">CaptButter</span><span class="mv same">No change</span></div>
-        <p class="stats"><b>1-1</b> record, <b>289.44</b> PF, 267.84 PA, all-play 14-4</p>
-        <p>Put up 151.88, the second-best score of the week, and still lost. Dak&#x27;s 37.76 on the bench would have won it.</p>
+        <div class="rhead"><span class="who"><span class="av md" style="--tc:#6A4C93" aria-hidden="true"><span>BB</span><img src="https://sleepercdn.com/uploads/38fff59c5a1500586a8a938259a7abd4.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Butter Boys</b><small>CaptButter</small></span></span><span class="mv same">No change</span></div>
+        <p class="stats"><b>1-1</b> &middot; 289.44 PF &middot; all-play 14-4</p>
+        <p>Second-best score of the week and a loss to show for it. Nothing wrong here that a little luck won&#x27;t fix.</p>
       </div>
     </li>
-    <li class="rank">
+    <li class="rank" style="--tc:#E4572E">
       <div class="cell"><span>4</span></div>
       <div class="rbody">
-        <div class="rhead"><h3>Trust the process</h3><span class="mgr">Brooksy3</span><span class="mv up">Up 1</span></div>
-        <p class="stats"><b>1-1</b> record, <b>245.12</b> PF, 240.28 PA, all-play 11-7</p>
-        <p>Goff went for 37.78 and it wasn&#x27;t enough against the Allen show. Fourth in points and 11-7 in all-play, which is solid.</p>
+        <div class="rhead"><span class="who"><span class="av md" style="--tc:#E4572E" aria-hidden="true"><span>TT</span><img src="https://sleepercdn.com/uploads/bde0074d24f62de19b7deeb64fb6eff7.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Trust the process</b><small>Brooksy3</small></span></span><span class="mv up">Up 1</span></div>
+        <p class="stats"><b>1-1</b> &middot; 245.12 PF &middot; all-play 11-7</p>
+        <p>Goff went for 37.78 and it still wasn&#x27;t enough. Solidly above average, just ran into the Allen show.</p>
       </div>
     </li>
-    <li class="rank">
+    <li class="rank" style="--tc:#30638E">
       <div class="cell"><span>5</span></div>
       <div class="rbody">
-        <div class="rhead"><h3>Yugi Muto</h3><span class="mgr">brenangell</span><span class="mv up">Up 3</span></div>
-        <p class="stats"><b>1-1</b> record, <b>216.06</b> PF, 255.82 PA, all-play 8-10</p>
-        <p>Won Week 2 by 0.26 and has faced the fourth-most points against (255.82). Bryce Young&#x27;s 30.08 sat behind Bo Nix&#x27;s 16.12, so there&#x27;s more in this roster than the scoreboard shows.</p>
+        <div class="rhead"><span class="who"><span class="av md" style="--tc:#30638E" aria-hidden="true"><span>YM</span><img src="https://sleepercdn.com/uploads/2f997208aeb49b938d4530ee89e9f10e.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Yugi Muto</b><small>brenangell</small></span></span><span class="mv up">Up 3</span></div>
+        <p class="stats"><b>1-1</b> &middot; 216.06 PF &middot; all-play 8-10</p>
+        <p>Survived by 0.26 and has faced the fourth-most points in the league. Bryce Young&#x27;s 30.08 on the bench says the ceiling is higher.</p>
       </div>
     </li>
-    <li class="rank">
+    <li class="rank" style="--tc:#8E5572">
       <div class="cell"><span>6</span></div>
       <div class="rbody">
-        <div class="rhead"><h3>The real Mr Ez</h3><span class="mgr">DrewLan13</span><span class="mv same">No change</span></div>
-        <p class="stats"><b>2-0</b> record, <b>193.38</b> PF, 176.7 PA, all-play 4-14</p>
-        <p>2-0 despite ranking eighth in points for. A 4-14 all-play mark and the lowest points against in the league (176.7) say the schedule has been kind. Next up: the team that&#x27;s 18-0 in all-play.</p>
+        <div class="rhead"><span class="who"><span class="av md" style="--tc:#8E5572" aria-hidden="true"><span>TR</span><img src="https://sleepercdn.com/uploads/d050e20ae74718ad10f031751bd363a9.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>The real Mr Ez</b><small>DrewLan13</small></span></span><span class="mv same">No change</span></div>
+        <p class="stats"><b>2-0</b> &middot; 193.38 PF &middot; all-play 4-14</p>
+        <p>2-0 on the eighth-best scoring and the softest schedule in the league. The team that&#x27;s 18-0 in all-play is up next.</p>
       </div>
     </li>
-    <li class="rank">
+    <li class="rank" style="--tc:#EDAE49">
       <div class="cell"><span>7</span></div>
       <div class="rbody">
-        <div class="rhead"><h3>Mr. Facilitator</h3><span class="mgr">SteveFromMinecraft</span><span class="mv down">Down 5</span></div>
-        <p class="stats"><b>1-1</b> record, <b>228.66</b> PF, 195.58 PA, all-play 7-11</p>
-        <p>Went from 142.16 in Week 1 to 86.5 in Week 2, the lowest score of the week. Biggest faller.</p>
+        <div class="rhead"><span class="who"><span class="av md" style="--tc:#EDAE49" aria-hidden="true"><span>MF</span><img src="https://sleepercdn.com/uploads/6008ceffe1e8ff1f112ddce0875165a8.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Mr. Facilitator</b><small>SteveFromMinecraft</small></span></span><span class="mv down">Down 5</span></div>
+        <p class="stats"><b>1-1</b> &middot; 228.66 PF &middot; all-play 7-11</p>
+        <p>From 142.16 in Week 1 to the lowest score of Week 2. Biggest faller.</p>
       </div>
     </li>
-    <li class="rank">
+    <li class="rank" style="--tc:#00798C">
       <div class="cell"><span>8</span></div>
       <div class="rbody">
-        <div class="rhead"><h3>Mayo Clinic</h3><span class="mgr">Lilsteazy21</span><span class="mv up">Up 1</span></div>
-        <p class="stats"><b>1-1</b> record, <b>189.5</b> PF, 202.94 PA, all-play 3-15</p>
-        <p>Won with 93.44, a score that would have lost to any team except the one they drew. CeeDee carried with 31.3 while Nabers gave you 0.6. A 3-15 all-play record means there&#x27;s no margin for error.</p>
+        <div class="rhead"><span class="who"><span class="av md" style="--tc:#00798C" aria-hidden="true"><span>MC</span><img src="https://sleepercdn.com/uploads/c0091d5b8d6d472d5ea495b0c50d2f41.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Mayo Clinic</b><small>Lilsteazy21</small></span></span><span class="mv up">Up 1</span></div>
+        <p class="stats"><b>1-1</b> &middot; 189.5 PF &middot; all-play 3-15</p>
+        <p>93.44 would have lost to anyone but the team they drew. CeeDee is doing a lot of carrying.</p>
       </div>
     </li>
-    <li class="rank">
+    <li class="rank" style="--tc:#2E933C">
       <div class="cell"><span>9</span></div>
       <div class="rbody">
-        <div class="rhead"><h3>The Meatsticks</h3><span class="mgr">Bigmeatstick</span><span class="mv down">Down 2</span></div>
-        <p class="stats"><b>0-2</b> record, <b>213.54</b> PF, 245.14 PA, all-play 6-12</p>
-        <p>0-2, but 213.54 points is more than 1-1 Mayo Clinic and 2-0 The real Mr Ez. DJ Moore started and put up -0.1 in a 5.9-point loss. That&#x27;s a rough way to go 0-2.</p>
+        <div class="rhead"><span class="who"><span class="av md" style="--tc:#2E933C" aria-hidden="true"><span>TM</span><img src="https://sleepercdn.com/uploads/6bf38c0231a1bac8e3cdf7794b815490.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>The Meatsticks</b><small>Bigmeatstick</small></span></span><span class="mv down">Down 2</span></div>
+        <p class="stats"><b>0-2</b> &middot; 213.54 PF &middot; all-play 6-12</p>
+        <p>Winless, but outscoring 1-1 Mayo Clinic and 2-0 The real Mr Ez. Starting DJ Moore (-0.1) didn&#x27;t help.</p>
       </div>
     </li>
-    <li class="rank">
+    <li class="rank" style="--tc:#D1495B">
       <div class="cell"><span>10</span></div>
       <div class="rbody">
-        <div class="rhead"><h3>EZ-Bee-Z</h3><span class="mgr">MrEZx</span><span class="mv same">No change</span></div>
-        <p class="stats"><b>0-2</b> record, <b>188.68</b> PF, 199.72 PA, all-play 4-14</p>
-        <p>0-2 and last in points for (188.68). Lost Week 2 by 0.26 with Tre Tucker&#x27;s 20.4 on the bench. Same 4-14 all-play record as the 2-0 real Mr Ez, which tells you how much luck is in these standings.</p>
+        <div class="rhead"><span class="who"><span class="av md" style="--tc:#D1495B" aria-hidden="true"><span>EB</span><img src="https://sleepercdn.com/uploads/3269c0ec883bcaf2c629dca93a82e776.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>EZ-Bee-Z</b><small>MrEZx</small></span></span><span class="mv same">No change</span></div>
+        <p class="stats"><b>0-2</b> &middot; 188.68 PF &middot; all-play 4-14</p>
+        <p>Last in points, and one of the two losses was by 0.26. Same all-play record as the 2-0 real Mr Ez, which says plenty about luck.</p>
       </div>
     </li></ol>
   </section>
+
   <section id="recap">
     <h2>Week 2 recap</h2>
-    
+    <div class="toggle" role="group" aria-label="Score view">
+      <button type="button" data-mode="actual" aria-pressed="true">Actual</button>
+      <button type="button" data-mode="best" aria-pressed="false">Best lineups</button>
+    </div>
+    <div id="games">
     <article class="game">
-      <div class="line win"><span class="tn">Mayo Clinic <small>Lilsteazy21</small></span><span class="sc">93.44</span></div>
-      <div class="line"><span class="tn">Mr. Facilitator <small>SteveFromMinecraft</small></span><span class="sc">86.5</span></div>
+      
+        <div class="side" data-actual="93.44" data-best="110.32" style="--tc:#00798C">
+          <span class="who"><span class="av md" style="--tc:#00798C" aria-hidden="true"><span>MC</span><img src="https://sleepercdn.com/uploads/c0091d5b8d6d472d5ea495b0c50d2f41.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Mayo Clinic</b><small>Lilsteazy21</small></span></span>
+          <span class="sc"><span class="wtag">W</span><span class="num">93.44</span></span>
+          <span class="bar"><i style="width:50.9%" data-a="50.9" data-b="60.1"></i></span>
+        </div>
+        <div class="side" data-actual="86.5" data-best="106.8" style="--tc:#EDAE49">
+          <span class="who"><span class="av md" style="--tc:#EDAE49" aria-hidden="true"><span>MF</span><img src="https://sleepercdn.com/uploads/6008ceffe1e8ff1f112ddce0875165a8.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Mr. Facilitator</b><small>SteveFromMinecraft</small></span></span>
+          <span class="sc"><span class="wtag">W</span><span class="num">86.5</span></span>
+          <span class="bar"><i style="width:47.1%" data-a="47.1" data-b="58.2"></i></span>
+        </div>
       <p class="tops">Top scorers: CeeDee Lamb 31.3 / Jake Ferguson 20.3</p>
-      <p>Lamb outscored everybody on the field. Facilitator started Mumpfield (1.7), Montgomery (3.4) and Strange (3.7) while Andrews (10.9) and Adonai Mitchell (9.3) sat. Their best possible lineup was 106.8, which wins it.</p>
+      <p class="bestnote">Left on the bench: Mayo Clinic 16.88, Mr. Facilitator 20.3.</p>
+      <p>Lamb (31.3) outscored everybody on the field in the lowest-scoring game of the week.</p>
     </article>
-    <article class="game">
-      <div class="line win"><span class="tn">Yugi Muto <small>brenangell</small></span><span class="sc">113.92</span></div>
-      <div class="line"><span class="tn">EZ-Bee-Z <small>MrEZx</small></span><span class="sc">113.66</span></div>
+    <article class="game flip">
+      
+        <div class="side" data-actual="113.92" data-best="149.48" style="--tc:#30638E">
+          <span class="who"><span class="av md" style="--tc:#30638E" aria-hidden="true"><span>YM</span><img src="https://sleepercdn.com/uploads/2f997208aeb49b938d4530ee89e9f10e.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Yugi Muto</b><small>brenangell</small></span></span>
+          <span class="sc"><span class="wtag">W</span><span class="num">113.92</span></span>
+          <span class="bar"><i style="width:62.1%" data-a="62.1" data-b="81.5"></i></span>
+        </div>
+        <div class="side" data-actual="113.66" data-best="149.76" style="--tc:#D1495B">
+          <span class="who"><span class="av md" style="--tc:#D1495B" aria-hidden="true"><span>EB</span><img src="https://sleepercdn.com/uploads/3269c0ec883bcaf2c629dca93a82e776.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>EZ-Bee-Z</b><small>MrEZx</small></span></span>
+          <span class="sc"><span class="wtag">W</span><span class="num">113.66</span></span>
+          <span class="bar"><i style="width:61.9%" data-a="61.9" data-b="81.6"></i></span>
+        </div>
       <p class="tops">Top scorers: Dalton Kincaid 22.5 / Davante Adams 35.5</p>
-      <p>Decided by 0.26 points. EZ-Bee-Z started Alec Pierce (1.6) and left Tre Tucker (20.4) on the bench. That&#x27;s the game.</p>
+      <p class="bestnote">Left on the bench: Yugi Muto 35.56, EZ-Bee-Z 36.1.</p>
+      <p>Kincaid&#x27;s 22.5 was just enough. Flip to Best lineups: both teams left 35-plus on the bench, and it still comes down to 0.28 the other way.</p>
     </article>
     <article class="game">
-      <div class="line win"><span class="tn">KINGS LANDING 🏆 <small>ATowns</small></span><span class="sc">144.22</span></div>
-      <div class="line"><span class="tn">Trust the process <small>Brooksy3</small></span><span class="sc">128.68</span></div>
+      
+        <div class="side" data-actual="144.22" data-best="183.52" style="--tc:#3D5A80">
+          <span class="who"><span class="av md" style="--tc:#3D5A80" aria-hidden="true"><span>KL</span><img src="https://sleepercdn.com/uploads/e6464c70284f5eb41ca9d2af33f6fd13.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>KINGS LANDING 🏆</b><small>ATowns</small></span></span>
+          <span class="sc"><span class="wtag">W</span><span class="num">144.22</span></span>
+          <span class="bar"><i style="width:78.6%" data-a="78.6" data-b="100.0"></i></span>
+        </div>
+        <div class="side" data-actual="128.68" data-best="135.68" style="--tc:#E4572E">
+          <span class="who"><span class="av md" style="--tc:#E4572E" aria-hidden="true"><span>TT</span><img src="https://sleepercdn.com/uploads/bde0074d24f62de19b7deeb64fb6eff7.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Trust the process</b><small>Brooksy3</small></span></span>
+          <span class="sc"><span class="wtag">W</span><span class="num">128.68</span></span>
+          <span class="bar"><i style="width:70.1%" data-a="70.1" data-b="73.9"></i></span>
+        </div>
       <p class="tops">Top scorers: Josh Allen 46.82 / Jared Goff 37.78</p>
-      <p>Allen beat Goff by 9 in the QB duel, and Cook and Henry combined for 36.6 to 23.6 from Tuten and Swift. That was the whole margin.</p>
+      <p class="bestnote">Left on the bench: KINGS LANDING 🏆 39.3, Trust the process 7.</p>
+      <p>Allen beat Goff by 9 in the QB duel, and Cook and Henry outscored Tuten and Swift 36.6 to 23.6.</p>
     </article>
-    <article class="game">
-      <div class="line win"><span class="tn">The real Mr Ez <small>DrewLan13</small></span><span class="sc">107.58</span></div>
-      <div class="line"><span class="tn">The Meatsticks <small>Bigmeatstick</small></span><span class="sc">101.68</span></div>
+    <article class="game flip">
+      
+        <div class="side" data-actual="107.58" data-best="112.98" style="--tc:#8E5572">
+          <span class="who"><span class="av md" style="--tc:#8E5572" aria-hidden="true"><span>TR</span><img src="https://sleepercdn.com/uploads/d050e20ae74718ad10f031751bd363a9.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>The real Mr Ez</b><small>DrewLan13</small></span></span>
+          <span class="sc"><span class="wtag">W</span><span class="num">107.58</span></span>
+          <span class="bar"><i style="width:58.6%" data-a="58.6" data-b="61.6"></i></span>
+        </div>
+        <div class="side" data-actual="101.68" data-best="125.48" style="--tc:#2E933C">
+          <span class="who"><span class="av md" style="--tc:#2E933C" aria-hidden="true"><span>TM</span><img src="https://sleepercdn.com/uploads/6bf38c0231a1bac8e3cdf7794b815490.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>The Meatsticks</b><small>Bigmeatstick</small></span></span>
+          <span class="sc"><span class="wtag">W</span><span class="num">101.68</span></span>
+          <span class="bar"><i style="width:55.4%" data-a="55.4" data-b="68.4"></i></span>
+        </div>
       <p class="tops">Top scorers: Matthew Stafford 34.98 / Jonathan Taylor 27.2</p>
-      <p>Stafford did the heavy lifting. Starting Jalen Coker (10.6) over DJ Moore (-0.1) flips this one to the Meatsticks.</p>
+      <p class="bestnote">Left on the bench: The real Mr Ez 5.4, The Meatsticks 23.8.</p>
+      <p>Stafford&#x27;s 34.98 did the heavy lifting against a lineup that got -0.1 out of DJ Moore.</p>
     </article>
     <article class="game">
-      <div class="line win"><span class="tn">The Fellowship <small>Yaak</small></span><span class="sc">155.98</span></div>
-      <div class="line"><span class="tn">Butter Boys <small>CaptButter</small></span><span class="sc">151.88</span></div>
+      
+        <div class="side" data-actual="155.98" data-best="175.68" style="--tc:#9C6644">
+          <span class="who"><span class="av md" style="--tc:#9C6644" aria-hidden="true"><span>TF</span><img src="https://sleepercdn.com/avatars/thumbs/22b89c1f067ebca743f3802fe0daa1f8" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>The Fellowship</b><small>Yaak</small></span></span>
+          <span class="sc"><span class="wtag">W</span><span class="num">155.98</span></span>
+          <span class="bar"><i style="width:85.0%" data-a="85.0" data-b="95.7"></i></span>
+        </div>
+        <div class="side" data-actual="151.88" data-best="163.66" style="--tc:#6A4C93">
+          <span class="who"><span class="av md" style="--tc:#6A4C93" aria-hidden="true"><span>BB</span><img src="https://sleepercdn.com/uploads/38fff59c5a1500586a8a938259a7abd4.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Butter Boys</b><small>CaptButter</small></span></span>
+          <span class="sc"><span class="wtag">W</span><span class="num">151.88</span></span>
+          <span class="bar"><i style="width:82.8%" data-a="82.8" data-b="89.2"></i></span>
+        </div>
       <p class="tops">Top scorers: Jaxon Smith-Njigba 38 / Brock Purdy 32.48</p>
-      <p>Game of the week. JSN and Mahomes (34.98) edged out Purdy, St. Brown (30.7) and a surprise 26 from Dalton Schultz. Dak&#x27;s 37.76 sat on the Butter Boys bench.</p>
-    </article>
-    <h2 style="margin-top:2rem;font-size:1.4rem">Superlatives</h2>
-    <dl class="awards">
-      <dt>High score</dt><dd>The Fellowship, 155.98</dd>
-      <dt>Low score</dt><dd>Mr. Facilitator, 86.5</dd>
-      <dt>Closest</dt><dd>Yugi Muto over EZ-Bee-Z by 0.26</dd>
-      <dt>Blowout</dt><dd>KINGS LANDING 🏆 over Trust the process by 15.54</dd>
-    </dl>
-    <h2 style="margin-top:2rem;font-size:1.4rem">Hall of bench pain</h2>
-    <ul class="pain"><li><b>EZ-Bee-Z</b>: Tre Tucker scored 20.4 on the bench while Alec Pierce started and scored 1.6. Cost them the game.</li><li><b>The Meatsticks</b>: Jalen Coker scored 10.6 on the bench while DJ Moore started and scored -0.1. Cost them the game.</li><li><b>Mr. Facilitator</b>: Adonai Mitchell scored 9.3 on the bench while Konata Mumpfield started and scored 1.7. Cost them the game.</li><li><b>Butter Boys</b>: Dak Prescott scored 37.76 on the bench while Brock Purdy started and scored 32.48. Cost them the game.</li><li><b>KINGS LANDING 🏆</b>: Travis Kelce scored 25.1 on the bench while Dallas Goedert started and scored 1.4. Won anyway.</li><li><b>Yugi Muto</b>: Darren Waller scored 18.3 on the bench while Saquon Barkley started and scored 2.5. Won anyway.</li><li><b>The Fellowship</b>: Garrett Wilson scored 14.2 on the bench while Colston Loveland started and scored 1.3. Won anyway.</li><li><b>Mayo Clinic</b>: Keon Coleman scored 9.3 on the bench while Malik Nabers started and scored 0.6. Won anyway.</li><li><b>Trust the process</b>: Devaughn Vele scored 8.9 on the bench while Quentin Johnston started and scored 1.9. Lost anyway.</li></ul>
+      <p class="bestnote">Left on the bench: The Fellowship 19.7, Butter Boys 11.78.</p>
+      <p>Game of the week. JSN and Mahomes edged Purdy, St. Brown and a surprise 26 from Dalton Schultz.</p>
+    </article></div>
+    <dl class="awards"><div class="award"><dt>Nuclear performance</dt><dd>Josh Allen, 46.82</dd><small>KINGS LANDING 🏆</small></div><div class="award"><dt>Top score</dt><dd>The Fellowship, 155.98</dd></div><div class="award"><dt>The funeral</dt><dd>Mr. Facilitator, 86.5</dd><small>Lowest score of the week</small></div><div class="award"><dt>Blowout</dt><dd>KINGS LANDING 🏆 by 15.54</dd><small>over Trust the process</small></div><div class="award"><dt>Bench blunder</dt><dd>KINGS LANDING 🏆, 39.3 left</dd><small>Most points left on the bench</small></div><div class="award"><dt>Sharp shooter</dt><dd>The real Mr Ez, 95%</dd><small>Share of best possible lineup</small></div><div class="award"><dt>Luckiest win</dt><dd>Mayo Clinic, 93.44</dd><small>Only the 9th best score</small></div><div class="award"><dt>Heartbreaker</dt><dd>Butter Boys, 151.88</dd><small>Best score to take a loss</small></div></dl>
   </section>
+
+  <section id="bench">
+    <h2>Hall of bench pain</h2>
+    <p class="sub">Each team's worst single call: a bench player who outscored someone they could have replaced.</p>
+    <ul class="pain"><li class="bad">
+      <div class="ph"><span class="who"><span class="av md" style="--tc:#D1495B" aria-hidden="true"><span>EB</span><img src="https://sleepercdn.com/uploads/3269c0ec883bcaf2c629dca93a82e776.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>EZ-Bee-Z</b><small>MrEZx</small></span></span><span class="lost"><b>18.8</b><small>pts lost</small></span></div>
+      <p>Benched Tre Tucker (20.4) and started Alec Pierce (1.6).
+      <span class="verdict">Cost them the game.</span></p></li><li class="bad">
+      <div class="ph"><span class="who"><span class="av md" style="--tc:#2E933C" aria-hidden="true"><span>TM</span><img src="https://sleepercdn.com/uploads/6bf38c0231a1bac8e3cdf7794b815490.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>The Meatsticks</b><small>Bigmeatstick</small></span></span><span class="lost"><b>10.7</b><small>pts lost</small></span></div>
+      <p>Benched Jalen Coker (10.6) and started DJ Moore (-0.1).
+      <span class="verdict">Cost them the game.</span></p></li><li class="bad">
+      <div class="ph"><span class="who"><span class="av md" style="--tc:#EDAE49" aria-hidden="true"><span>MF</span><img src="https://sleepercdn.com/uploads/6008ceffe1e8ff1f112ddce0875165a8.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Mr. Facilitator</b><small>SteveFromMinecraft</small></span></span><span class="lost"><b>7.6</b><small>pts lost</small></span></div>
+      <p>Benched Adonai Mitchell (9.3) and started Konata Mumpfield (1.7).
+      <span class="verdict">Cost them the game.</span></p></li><li class="bad">
+      <div class="ph"><span class="who"><span class="av md" style="--tc:#6A4C93" aria-hidden="true"><span>BB</span><img src="https://sleepercdn.com/uploads/38fff59c5a1500586a8a938259a7abd4.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Butter Boys</b><small>CaptButter</small></span></span><span class="lost"><b>5.28</b><small>pts lost</small></span></div>
+      <p>Benched Dak Prescott (37.76) and started Brock Purdy (32.48).
+      <span class="verdict">Cost them the game.</span></p></li><li class="">
+      <div class="ph"><span class="who"><span class="av md" style="--tc:#3D5A80" aria-hidden="true"><span>KL</span><img src="https://sleepercdn.com/uploads/e6464c70284f5eb41ca9d2af33f6fd13.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>KINGS LANDING 🏆</b><small>ATowns</small></span></span><span class="lost"><b>23.7</b><small>pts lost</small></span></div>
+      <p>Benched Travis Kelce (25.1) and started Dallas Goedert (1.4).
+      <span class="verdict">Won anyway.</span></p></li><li class="">
+      <div class="ph"><span class="who"><span class="av md" style="--tc:#30638E" aria-hidden="true"><span>YM</span><img src="https://sleepercdn.com/uploads/2f997208aeb49b938d4530ee89e9f10e.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Yugi Muto</b><small>brenangell</small></span></span><span class="lost"><b>15.8</b><small>pts lost</small></span></div>
+      <p>Benched Darren Waller (18.3) and started Saquon Barkley (2.5).
+      <span class="verdict">Won anyway.</span></p></li><li class="">
+      <div class="ph"><span class="who"><span class="av md" style="--tc:#9C6644" aria-hidden="true"><span>TF</span><img src="https://sleepercdn.com/avatars/thumbs/22b89c1f067ebca743f3802fe0daa1f8" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>The Fellowship</b><small>Yaak</small></span></span><span class="lost"><b>12.9</b><small>pts lost</small></span></div>
+      <p>Benched Garrett Wilson (14.2) and started Colston Loveland (1.3).
+      <span class="verdict">Won anyway.</span></p></li><li class="">
+      <div class="ph"><span class="who"><span class="av md" style="--tc:#00798C" aria-hidden="true"><span>MC</span><img src="https://sleepercdn.com/uploads/c0091d5b8d6d472d5ea495b0c50d2f41.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Mayo Clinic</b><small>Lilsteazy21</small></span></span><span class="lost"><b>8.7</b><small>pts lost</small></span></div>
+      <p>Benched Keon Coleman (9.3) and started Malik Nabers (0.6).
+      <span class="verdict">Won anyway.</span></p></li><li class="">
+      <div class="ph"><span class="who"><span class="av md" style="--tc:#E4572E" aria-hidden="true"><span>TT</span><img src="https://sleepercdn.com/uploads/bde0074d24f62de19b7deeb64fb6eff7.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Trust the process</b><small>Brooksy3</small></span></span><span class="lost"><b>7</b><small>pts lost</small></span></div>
+      <p>Benched Devaughn Vele (8.9) and started Quentin Johnston (1.9).
+      <span class="verdict">Lost anyway.</span></p></li></ul>
+  </section>
+
+  <section id="luck">
+    <h2>Luck meter</h2>
+    <p class="sub">Actual wins compared to expected wins, which is what your weekly scores would earn if you played every team every week.</p>
+    <ul class="luck"><li><span class="who"><span class="av md" style="--tc:#8E5572" aria-hidden="true"><span>TR</span><img src="https://sleepercdn.com/uploads/d050e20ae74718ad10f031751bd363a9.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>The real Mr Ez</b><small>DrewLan13</small></span></span><span class="meter"><i class="pos" style="left:50%;width:50.0%"></i></span>
+      <span class="lk"><b>Lucky</b><small>2-0 actual, 0.4 expected</small></span></li><li><span class="who"><span class="av md" style="--tc:#00798C" aria-hidden="true"><span>MC</span><img src="https://sleepercdn.com/uploads/c0091d5b8d6d472d5ea495b0c50d2f41.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Mayo Clinic</b><small>Lilsteazy21</small></span></span><span class="meter"><i class="pos" style="left:50%;width:21.4%"></i></span>
+      <span class="lk"><b>Lucky</b><small>1-1 actual, 0.3 expected</small></span></li><li><span class="who"><span class="av md" style="--tc:#EDAE49" aria-hidden="true"><span>MF</span><img src="https://sleepercdn.com/uploads/6008ceffe1e8ff1f112ddce0875165a8.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Mr. Facilitator</b><small>SteveFromMinecraft</small></span></span><span class="meter"><i class="pos" style="left:50%;width:7.1%"></i></span>
+      <span class="lk"><b>Earned it</b><small>1-1 actual, 0.8 expected</small></span></li><li><span class="who"><span class="av md" style="--tc:#30638E" aria-hidden="true"><span>YM</span><img src="https://sleepercdn.com/uploads/2f997208aeb49b938d4530ee89e9f10e.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Yugi Muto</b><small>brenangell</small></span></span><span class="meter"><i class="pos" style="left:50%;width:3.6%"></i></span>
+      <span class="lk"><b>Earned it</b><small>1-1 actual, 0.9 expected</small></span></li><li><span class="who"><span class="av md" style="--tc:#9C6644" aria-hidden="true"><span>TF</span><img src="https://sleepercdn.com/avatars/thumbs/22b89c1f067ebca743f3802fe0daa1f8" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>The Fellowship</b><small>Yaak</small></span></span><span class="meter"><i class="pos" style="left:50%;width:0.0%"></i></span>
+      <span class="lk"><b>Earned it</b><small>2-0 actual, 2.0 expected</small></span></li><li><span class="who"><span class="av md" style="--tc:#E4572E" aria-hidden="true"><span>TT</span><img src="https://sleepercdn.com/uploads/bde0074d24f62de19b7deeb64fb6eff7.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Trust the process</b><small>Brooksy3</small></span></span><span class="meter"><i class="neg" style="left:42.9%;width:7.1%"></i></span>
+      <span class="lk"><b>Earned it</b><small>1-1 actual, 1.2 expected</small></span></li><li><span class="who"><span class="av md" style="--tc:#D1495B" aria-hidden="true"><span>EB</span><img src="https://sleepercdn.com/uploads/3269c0ec883bcaf2c629dca93a82e776.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>EZ-Bee-Z</b><small>MrEZx</small></span></span><span class="meter"><i class="neg" style="left:35.7%;width:14.3%"></i></span>
+      <span class="lk"><b>Earned it</b><small>0-2 actual, 0.4 expected</small></span></li><li><span class="who"><span class="av md" style="--tc:#6A4C93" aria-hidden="true"><span>BB</span><img src="https://sleepercdn.com/uploads/38fff59c5a1500586a8a938259a7abd4.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Butter Boys</b><small>CaptButter</small></span></span><span class="meter"><i class="neg" style="left:32.1%;width:17.9%"></i></span>
+      <span class="lk"><b>Unlucky</b><small>1-1 actual, 1.6 expected</small></span></li><li><span class="who"><span class="av md" style="--tc:#2E933C" aria-hidden="true"><span>TM</span><img src="https://sleepercdn.com/uploads/6bf38c0231a1bac8e3cdf7794b815490.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>The Meatsticks</b><small>Bigmeatstick</small></span></span><span class="meter"><i class="neg" style="left:28.6%;width:21.4%"></i></span>
+      <span class="lk"><b>Unlucky</b><small>0-2 actual, 0.7 expected</small></span></li><li><span class="who"><span class="av md" style="--tc:#3D5A80" aria-hidden="true"><span>KL</span><img src="https://sleepercdn.com/uploads/e6464c70284f5eb41ca9d2af33f6fd13.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>KINGS LANDING 🏆</b><small>ATowns</small></span></span><span class="meter"><i class="neg" style="left:28.6%;width:21.4%"></i></span>
+      <span class="lk"><b>Unlucky</b><small>1-1 actual, 1.7 expected</small></span></li></ul>
+  </section>
+
   <section id="preview">
     <h2>Week 3 preview</h2>
-    <p class="sub">Moneylines come from Sleeper's projections for each current starting lineup, scored with league settings, then turned into win odds (normal curve, 34-point spread on the margin, no vig). Lineups change, so these will too.</p>
+    <p class="sub">Moneylines use Sleeper's projections for each starting lineup, scored with league settings, then a normal curve with a 34-point spread on the margin, no vig. They move as lineups change.</p>
     
     <article class="pick">
       <p class="tag">Game of the week</p>
-      <div class="odds">
-        <div><span class="tn">Yugi Muto <small>brenangell &middot; 1-1</small></span><span class="ml">-112</span><span class="pj">129.8 proj</span></div>
-        <div><span class="tn">The Meatsticks <small>Bigmeatstick &middot; 0-2</small></span><span class="ml">+112</span><span class="pj">127.4 proj</span></div>
-      </div>
-      <p>A coin flip on paper. Saquon, Mike Evans, Brock Bowers and Jalen Coker are all questionable, so the injury report probably decides this one.</p><p class="q">Injury watch: Mike Evans (Questionable), Saquon Barkley (Questionable), Brock Bowers (Questionable), Jalen Coker (Questionable)</p>
+      <div class="odds"><div class="oline"><span class="who"><span class="av md" style="--tc:#30638E" aria-hidden="true"><span>YM</span><img src="https://sleepercdn.com/uploads/2f997208aeb49b938d4530ee89e9f10e.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Yugi Muto</b><small>brenangell &middot; 1-1</small></span></span>
+          <span class="ml">-112</span><span class="pj">129.8 proj</span></div><div class="oline"><span class="who"><span class="av md" style="--tc:#2E933C" aria-hidden="true"><span>TM</span><img src="https://sleepercdn.com/uploads/6bf38c0231a1bac8e3cdf7794b815490.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>The Meatsticks</b><small>Bigmeatstick &middot; 0-2</small></span></span>
+          <span class="ml">+112</span><span class="pj">127.4 proj</span></div></div>
+      <p>A coin flip on paper, with four questionable starters between them. The injury report probably decides this one.</p><p class="q">Injury watch: Mike Evans (Questionable), Saquon Barkley (Questionable), Brock Bowers (Questionable), Jalen Coker (Questionable)</p>
     </article>
     <article class="pick">
       
-      <div class="odds">
-        <div><span class="tn">Butter Boys <small>CaptButter &middot; 1-1</small></span><span class="ml">-235</span><span class="pj">124.8 proj</span></div>
-        <div><span class="tn">Trust the process <small>Brooksy3 &middot; 1-1</small></span><span class="ml">+235</span><span class="pj">106.8 proj</span></div>
-      </div>
+      <div class="odds"><div class="oline"><span class="who"><span class="av md" style="--tc:#6A4C93" aria-hidden="true"><span>BB</span><img src="https://sleepercdn.com/uploads/38fff59c5a1500586a8a938259a7abd4.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Butter Boys</b><small>CaptButter &middot; 1-1</small></span></span>
+          <span class="ml">-235</span><span class="pj">124.8 proj</span></div><div class="oline"><span class="who"><span class="av md" style="--tc:#E4572E" aria-hidden="true"><span>TT</span><img src="https://sleepercdn.com/uploads/bde0074d24f62de19b7deeb64fb6eff7.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Trust the process</b><small>Brooksy3 &middot; 1-1</small></span></span>
+          <span class="ml">+235</span><span class="pj">106.8 proj</span></div></div>
       <p>Purdy vs Goff after both went for 30-plus last week. The Butter Boys have scored the third-most points and are due a little luck.</p><p class="q">Injury watch: Aaron Jones (Questionable)</p>
     </article>
     <article class="pick">
       
-      <div class="odds">
-        <div><span class="tn">Mayo Clinic <small>Lilsteazy21 &middot; 1-1</small></span><span class="ml">+306</span><span class="pj">107.6 proj</span></div>
-        <div><span class="tn">KINGS LANDING 🏆 <small>ATowns &middot; 1-1</small></span><span class="ml">-306</span><span class="pj">130.9 proj</span></div>
-      </div>
+      <div class="odds"><div class="oline"><span class="who"><span class="av md" style="--tc:#00798C" aria-hidden="true"><span>MC</span><img src="https://sleepercdn.com/uploads/c0091d5b8d6d472d5ea495b0c50d2f41.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Mayo Clinic</b><small>Lilsteazy21 &middot; 1-1</small></span></span>
+          <span class="ml">+306</span><span class="pj">107.6 proj</span></div><div class="oline"><span class="who"><span class="av md" style="--tc:#3D5A80" aria-hidden="true"><span>KL</span><img src="https://sleepercdn.com/uploads/e6464c70284f5eb41ca9d2af33f6fd13.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>KINGS LANDING 🏆</b><small>ATowns &middot; 1-1</small></span></span>
+          <span class="ml">-306</span><span class="pj">130.9 proj</span></div></div>
       <p>Mayo is rolling with Malik Willis at QB and a questionable Nabers. They need CeeDee to go nuclear again.</p><p class="q">Injury watch: Malik Nabers (Questionable)</p>
     </article>
     <article class="pick">
       
-      <div class="odds">
-        <div><span class="tn">EZ-Bee-Z <small>MrEZx &middot; 0-2</small></span><span class="ml">+323</span><span class="pj">94.5 proj</span></div>
-        <div><span class="tn">Mr. Facilitator <small>SteveFromMinecraft &middot; 1-1</small></span><span class="ml">-323</span><span class="pj">118.9 proj</span></div>
-      </div>
-      <p>A bounce-back spot for Lamar and the Facilitator. EZ-Bee-Z (the 0-2 one) has the lowest projection of the week, so check that bench before kickoff.</p><p class="q">Injury watch: Jaylen Warren (Questionable), Zay Flowers (Questionable), Kyle Monangai (Questionable)</p>
+      <div class="odds"><div class="oline"><span class="who"><span class="av md" style="--tc:#D1495B" aria-hidden="true"><span>EB</span><img src="https://sleepercdn.com/uploads/3269c0ec883bcaf2c629dca93a82e776.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>EZ-Bee-Z</b><small>MrEZx &middot; 0-2</small></span></span>
+          <span class="ml">+323</span><span class="pj">94.5 proj</span></div><div class="oline"><span class="who"><span class="av md" style="--tc:#EDAE49" aria-hidden="true"><span>MF</span><img src="https://sleepercdn.com/uploads/6008ceffe1e8ff1f112ddce0875165a8.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>Mr. Facilitator</b><small>SteveFromMinecraft &middot; 1-1</small></span></span>
+          <span class="ml">-323</span><span class="pj">118.9 proj</span></div></div>
+      <p>A bounce-back spot for Lamar and the Facilitator. EZ-Bee-Z has the lowest projection of the week, so check that bench before kickoff.</p><p class="q">Injury watch: Jaylen Warren (Questionable), Zay Flowers (Questionable), Kyle Monangai (Questionable)</p>
     </article>
     <article class="pick">
       <p class="tag">Lock of the week</p>
-      <div class="odds">
-        <div><span class="tn">The real Mr Ez <small>DrewLan13 &middot; 2-0</small></span><span class="ml">+1254</span><span class="pj">97.1 proj</span></div>
-        <div><span class="tn">The Fellowship <small>Yaak &middot; 2-0</small></span><span class="ml">-1254</span><span class="pj">146.3 proj</span></div>
-      </div>
-      <p>The 2-0 real Mr Ez (DrewLan13, not to be confused with 0-2 EZ-Bee-Z) runs into the league&#x27;s best team with three questionable starters. The lucky start gets its first real test.</p><p class="q">Injury watch: Travis Etienne (Questionable), George Holani (Questionable), Michael Pittman (Questionable)</p>
+      <div class="odds"><div class="oline"><span class="who"><span class="av md" style="--tc:#8E5572" aria-hidden="true"><span>TR</span><img src="https://sleepercdn.com/uploads/d050e20ae74718ad10f031751bd363a9.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>The real Mr Ez</b><small>DrewLan13 &middot; 2-0</small></span></span>
+          <span class="ml">+1254</span><span class="pj">97.1 proj</span></div><div class="oline"><span class="who"><span class="av md" style="--tc:#9C6644" aria-hidden="true"><span>TF</span><img src="https://sleepercdn.com/avatars/thumbs/22b89c1f067ebca743f3802fe0daa1f8" alt="" loading="lazy" onerror="this.remove()"></span><span class="nm"><b>The Fellowship</b><small>Yaak &middot; 2-0</small></span></span>
+          <span class="ml">-1254</span><span class="pj">146.3 proj</span></div></div>
+      <p>The 2-0 real Mr Ez runs into the league&#x27;s best team with three questionable starters. The softest schedule in the league just got a lot harder.</p><p class="q">Injury watch: Travis Etienne (Questionable), George Holani (Questionable), Michael Pittman (Questionable)</p>
     </article>
   </section>
 </main>
-<footer>Data from the Sleeper API. Updated Sep 24, 2026.</footer>
+<footer>Data from the Sleeper API. Updated Thu Sep 24, 11:03 AM ET.</footer>
+<script>
+(function(){
+  var games=document.getElementById('games');
+  function apply(mode){
+    games.classList.toggle('best',mode==='best');
+    document.querySelectorAll('.toggle button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.mode===mode)});
+    games.querySelectorAll('.game').forEach(function(g){
+      var sides=[].slice.call(g.querySelectorAll('.side')),vals=sides.map(function(s){return parseFloat(s.dataset[mode])});
+      var top=vals[0]>=vals[1]?0:1;
+      sides.forEach(function(s,i){
+        s.querySelector('.num').textContent=(+vals[i].toFixed(2)).toString();
+        s.classList.toggle('win',i===top);
+        var bar=s.querySelector('.bar i');bar.style.width=bar.dataset[mode==='best'?'b':'a']+'%';
+      });
+    });
+  }
+  document.querySelectorAll('.toggle button').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.mode)})});
+  apply('actual');
+})();
+</script>
 </body>
 </html>

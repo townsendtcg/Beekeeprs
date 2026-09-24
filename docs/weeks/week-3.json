@@ -11,6 +11,8 @@
       "apw": 4,
       "apl": 14,
       "score": 0.2141,
+      "xw": 0.4444,
+      "luck": -0.4444,
       "rank": 10
     },
     "Mayo Clinic": {
@@ -22,6 +24,8 @@
       "apw": 3,
       "apl": 15,
       "score": 0.3251,
+      "xw": 0.3333,
+      "luck": 0.6667,
       "rank": 8
     },
     "Mr. Facilitator": {
@@ -33,6 +37,8 @@
       "apw": 7,
       "apl": 11,
       "score": 0.4295,
+      "xw": 0.7778,
+      "luck": 0.2222,
       "rank": 7
     },
     "Yugi Muto": {
@@ -44,6 +50,8 @@
       "apw": 8,
       "apl": 10,
       "score": 0.4648,
+      "xw": 0.8889,
+      "luck": 0.1111,
       "rank": 5
     },
     "Butter Boys": {
@@ -55,6 +63,8 @@
       "apw": 14,
       "apl": 4,
       "score": 0.6493,
+      "xw": 1.5556,
+      "luck": -0.5556,
       "rank": 3
     },
     "The Meatsticks": {
@@ -66,6 +76,8 @@
       "apw": 6,
       "apl": 12,
       "score": 0.2981,
+      "xw": 0.6667,
+      "luck": -0.6667,
       "rank": 9
     },
     "Trust the process": {
@@ -77,6 +89,8 @@
       "apw": 11,
       "apl": 7,
       "score": 0.5374,
+      "xw": 1.2222,
+      "luck": -0.2222,
       "rank": 4
     },
     "The real Mr Ez": {
@@ -88,6 +102,8 @@
       "apw": 4,
       "apl": 14,
       "score": 0.4569,
+      "xw": 0.4444,
+      "luck": 1.5556,
       "rank": 6
     },
     "KINGS LANDING 🏆": {
@@ -99,6 +115,8 @@
       "apw": 15,
       "apl": 3,
       "score": 0.709,
+      "xw": 1.6667,
+      "luck": -0.6667,
       "rank": 2
     },
     "The Fellowship": {
@@ -110,7 +128,51 @@
       "apw": 18,
       "apl": 0,
       "score": 0.9159,
+      "xw": 2.0,
+      "luck": 0.0,
       "rank": 1
+    }
+  },
+  "optimal": {
+    "Mayo Clinic": {
+      "actual": 93.44,
+      "best": 110.32
+    },
+    "Mr. Facilitator": {
+      "actual": 86.5,
+      "best": 106.8
+    },
+    "Yugi Muto": {
+      "actual": 113.92,
+      "best": 149.48
+    },
+    "EZ-Bee-Z": {
+      "actual": 113.66,
+      "best": 149.76
+    },
+    "KINGS LANDING 🏆": {
+      "actual": 144.22,
+      "best": 183.52
+    },
+    "Trust the process": {
+      "actual": 128.68,
+      "best": 135.68
+    },
+    "The real Mr Ez": {
+      "actual": 107.58,
+      "best": 112.98
+    },
+    "The Meatsticks": {
+      "actual": 101.68,
+      "best": 125.48
+    },
+    "The Fellowship": {
+      "actual": 155.98,
+      "best": 175.68
+    },
+    "Butter Boys": {
+      "actual": 151.88,
+      "best": 163.66
     }
   },
   "preview": [
