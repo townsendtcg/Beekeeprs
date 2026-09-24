@@ -10,9 +10,9 @@
       "pa": 199.72,
       "apw": 4,
       "apl": 14,
-      "score": 0.2102,
+      "score": 0.2038,
       "xw": 0.4444,
-      "strength": 98.31,
+      "strength": 94.53,
       "luck": -0.4444,
       "rank": 10
     },
@@ -24,9 +24,9 @@
       "pa": 202.94,
       "apw": 3,
       "apl": 15,
-      "score": 0.3229,
+      "score": 0.3252,
       "xw": 0.3333,
-      "strength": 107.74,
+      "strength": 107.78,
       "luck": 0.6667,
       "rank": 9
     },
@@ -38,7 +38,7 @@
       "pa": 195.58,
       "apw": 7,
       "apl": 11,
-      "score": 0.4667,
+      "score": 0.4668,
       "xw": 0.7778,
       "strength": 129.16,
       "luck": 0.2222,
@@ -54,7 +54,7 @@
       "apl": 10,
       "score": 0.4926,
       "xw": 0.8889,
-      "strength": 129.85,
+      "strength": 129.84,
       "luck": 0.1111,
       "rank": 5
     },
@@ -66,9 +66,9 @@
       "pa": 267.84,
       "apw": 14,
       "apl": 4,
-      "score": 0.6384,
+      "score": 0.6386,
       "xw": 1.5556,
-      "strength": 127.24,
+      "strength": 127.2,
       "luck": -0.5556,
       "rank": 3
     },
@@ -80,9 +80,9 @@
       "pa": 245.14,
       "apw": 6,
       "apl": 12,
-      "score": 0.3556,
+      "score": 0.3559,
       "xw": 0.6667,
-      "strength": 128.65,
+      "strength": 128.7,
       "luck": -0.6667,
       "rank": 8
     },
@@ -94,13 +94,13 @@
       "pa": 240.28,
       "apw": 11,
       "apl": 7,
-      "score": 0.4962,
+      "score": 0.4985,
       "xw": 1.2222,
-      "strength": 107.6,
+      "strength": 107.62,
       "luck": -0.2222,
       "rank": 4
     },
-    "The real Mr Ez": {
+    "2-0": {
       "w": 2,
       "l": 0,
       "t": 0,
@@ -108,7 +108,7 @@
       "pa": 176.7,
       "apw": 4,
       "apl": 14,
-      "score": 0.4129,
+      "score": 0.4158,
       "xw": 0.4444,
       "strength": 100.87,
       "luck": 1.5556,
@@ -122,9 +122,9 @@
       "pa": 307.68,
       "apw": 15,
       "apl": 3,
-      "score": 0.7025,
+      "score": 0.7022,
       "xw": 1.6667,
-      "strength": 134.08,
+      "strength": 134.1,
       "luck": -0.6667,
       "rank": 2
     },
@@ -136,9 +136,9 @@
       "pa": 317.64,
       "apw": 18,
       "apl": 0,
-      "score": 0.902,
+      "score": 0.9006,
       "xw": 2.0,
-      "strength": 146.32,
+      "strength": 146.4,
       "luck": 0.0,
       "rank": 1
     }
@@ -150,7 +150,7 @@
     },
     "Mr. Facilitator": {
       "actual": 86.5,
-      "best": 106.8
+      "best": 100.8
     },
     "Yugi Muto": {
       "actual": 113.92,
@@ -162,19 +162,19 @@
     },
     "KINGS LANDING 🏆": {
       "actual": 144.22,
-      "best": 183.52
+      "best": 180.32
     },
     "Trust the process": {
       "actual": 128.68,
       "best": 135.68
     },
-    "The real Mr Ez": {
+    "2-0": {
       "actual": 107.58,
       "best": 112.98
     },
     "The Meatsticks": {
       "actual": 101.68,
-      "best": 125.48
+      "best": 114.58
     },
     "The Fellowship": {
       "actual": 155.98,
@@ -182,7 +182,7 @@
     },
     "Butter Boys": {
       "actual": 151.88,
-      "best": 163.66
+      "best": 162.36
     }
   },
   "preview": [
@@ -227,13 +227,13 @@
       }
     },
     {
-      "The real Mr Ez": {
+      "2-0": {
         "proj": 97.1,
-        "ml": "+1254"
+        "ml": "+1260"
       },
       "The Fellowship": {
-        "proj": 146.3,
-        "ml": "-1254"
+        "proj": 146.4,
+        "ml": "-1260"
       }
     }
   ]
