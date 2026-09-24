@@ -10,9 +10,9 @@
       "pa": 199.72,
       "apw": 4,
       "apl": 14,
-      "score": 0.2038,
+      "score": 0.2036,
       "xw": 0.4444,
-      "strength": 94.53,
+      "strength": 94.46,
       "luck": -0.4444,
       "rank": 10
     },
@@ -24,9 +24,9 @@
       "pa": 202.94,
       "apw": 3,
       "apl": 15,
-      "score": 0.3252,
+      "score": 0.326,
       "xw": 0.3333,
-      "strength": 107.78,
+      "strength": 108.12,
       "luck": 0.6667,
       "rank": 9
     },
@@ -38,9 +38,9 @@
       "pa": 195.58,
       "apw": 7,
       "apl": 11,
-      "score": 0.4668,
+      "score": 0.4664,
       "xw": 0.7778,
-      "strength": 129.16,
+      "strength": 129.02,
       "luck": 0.2222,
       "rank": 6
     },
@@ -52,9 +52,9 @@
       "pa": 255.82,
       "apw": 8,
       "apl": 10,
-      "score": 0.4926,
+      "score": 0.4929,
       "xw": 0.8889,
-      "strength": 129.84,
+      "strength": 129.97,
       "luck": 0.1111,
       "rank": 5
     },
@@ -66,9 +66,9 @@
       "pa": 267.84,
       "apw": 14,
       "apl": 4,
-      "score": 0.6386,
+      "score": 0.6387,
       "xw": 1.5556,
-      "strength": 127.2,
+      "strength": 127.26,
       "luck": -0.5556,
       "rank": 3
     },
@@ -80,9 +80,9 @@
       "pa": 245.14,
       "apw": 6,
       "apl": 12,
-      "score": 0.3559,
+      "score": 0.3563,
       "xw": 0.6667,
-      "strength": 128.7,
+      "strength": 128.88,
       "luck": -0.6667,
       "rank": 8
     },
@@ -94,9 +94,9 @@
       "pa": 240.28,
       "apw": 11,
       "apl": 7,
-      "score": 0.4985,
+      "score": 0.4984,
       "xw": 1.2222,
-      "strength": 107.62,
+      "strength": 107.61,
       "luck": -0.2222,
       "rank": 4
     },
@@ -108,9 +108,9 @@
       "pa": 176.7,
       "apw": 4,
       "apl": 14,
-      "score": 0.4158,
+      "score": 0.4154,
       "xw": 0.4444,
-      "strength": 100.87,
+      "strength": 100.74,
       "luck": 1.5556,
       "rank": 7
     },
@@ -136,9 +136,9 @@
       "pa": 317.64,
       "apw": 18,
       "apl": 0,
-      "score": 0.9006,
+      "score": 0.9003,
       "xw": 2.0,
-      "strength": 146.4,
+      "strength": 146.29,
       "luck": 0.0,
       "rank": 1
     }
@@ -189,50 +189,50 @@
     {
       "EZ-Bee-Z": {
         "proj": 94.5,
-        "ml": "+323"
+        "ml": "+320"
       },
       "Mr. Facilitator": {
-        "proj": 118.9,
-        "ml": "-323"
+        "proj": 118.7,
+        "ml": "-320"
       }
     },
     {
       "Mayo Clinic": {
-        "proj": 107.6,
-        "ml": "+306"
+        "proj": 108.0,
+        "ml": "+301"
       },
       "KINGS LANDING 🏆": {
-        "proj": 130.9,
-        "ml": "-306"
+        "proj": 131.0,
+        "ml": "-301"
       }
     },
     {
       "Yugi Muto": {
-        "proj": 129.8,
+        "proj": 130.0,
         "ml": "-112"
       },
       "The Meatsticks": {
-        "proj": 127.4,
+        "proj": 127.6,
         "ml": "+112"
       }
     },
     {
       "Butter Boys": {
-        "proj": 124.8,
-        "ml": "-235"
+        "proj": 124.7,
+        "ml": "-233"
       },
       "Trust the process": {
-        "proj": 106.8,
-        "ml": "+235"
+        "proj": 106.9,
+        "ml": "+233"
       }
     },
     {
       "2-0": {
-        "proj": 97.1,
+        "proj": 97.0,
         "ml": "+1260"
       },
       "The Fellowship": {
-        "proj": 146.4,
+        "proj": 146.3,
         "ml": "-1260"
       }
     }
