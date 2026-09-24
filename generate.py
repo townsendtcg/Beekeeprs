@@ -61,6 +61,13 @@ for i, r in enumerate(sorted(rosters, key=lambda r: r["roster_id"])):
     team[r["roster_id"]] = {"name": name, "mgr": u.get("display_name", ""), "avatar": av,
                             "color": COLORS[i % len(COLORS)]}
 IDS = sorted(team)
+# Taxi-squad and IR players can't be started, so they never count toward a "best lineup".
+NOSTART = {r["roster_id"]: set(r.get("taxi") or []) | set(r.get("reserve") or []) for r in rosters}
+
+def startable(m):
+    """Players this team could have started: anyone who did, plus anyone not on taxi or IR."""
+    blocked = NOSTART.get(m["roster_id"], set())
+    return [p for p in m["players"] if p in m["starters"] or p not in blocked]
 
 def pname(pid):
     p = players.get(pid) or {}
@@ -89,13 +96,13 @@ def best_lineup(pp, roster):
     return round(tot, 2)
 
 def optimal(m):
-    return best_lineup(m["players_points"], m["players"])
+    return best_lineup(m["players_points"], startable(m))
 
 def worst_bench_swap(m):
     """Biggest single bench-over-starter miss for an eligible slot."""
     pp, best = m["players_points"], None
     starters = m["starters"]
-    for bp in m["players"]:
+    for bp in startable(m):
         if bp in starters: continue
         for i, sp in enumerate(starters):
             if i < len(SLOTS) and pos(bp) in POSOK.get(SLOTS[i], {SLOTS[i]}):
@@ -117,7 +124,7 @@ def projections(w):
 def strength(w):
     """Projected best-lineup points for each team in week w, from the roster they had that week."""
     pj = projections(w)
-    return {m["roster_id"]: best_lineup(pj, m["players"]) for m in M[w]}
+    return {m["roster_id"]: best_lineup(pj, startable(m)) for m in M[w]}
 
 # ---------- results ----------
 res = {w: {} for w in range(1, COMPLETED + 1)}
@@ -192,7 +199,9 @@ pain.sort(key=lambda z: (not z["flipped"], -z["gap"]))
 # awards
 starters_all = [(s["m"]["players_points"].get(p, 0), p, s["rid"]) for s in allsides for p in s["m"]["starters"]]
 nuke = max(starters_all)
-blunder = max(allsides, key=lambda s: s["opt"] - s["pts"])
+left = lambda s: round(s["opt"] - s["pts"], 2)
+blunder = max(allsides, key=left)
+blunders = [s for s in allsides if left(s) == left(blunder)]  # ties share the award
 sharp = max(allsides, key=lambda s: s["pts"] / s["opt"] if s["opt"] else 0)
 lucky_win = max([g["w"] for g in recap], key=lambda s: week_rank[s["rid"]])
 heartbreak = min([g["l"] for g in recap], key=lambda s: week_rank[s["rid"]])
@@ -344,7 +353,8 @@ awards = [
     ("Top score", f"{tn(hi['rid'])}, {f2(hi['pts'])}", ""),
     ("The funeral", f"{tn(lo['rid'])}, {f2(lo['pts'])}", "Lowest score of the week"),
     ("Blowout", f"{tn(blowout['w']['rid'])} by {f2(blowout['margin'])}", f"over {tn(blowout['l']['rid'])}"),
-    ("Bench blunder", f"{tn(blunder['rid'])}, {f2(blunder['opt'] - blunder['pts'])} left", "Most points left on the bench"),
+    ("Bench blunder", f"{' and '.join(tn(s['rid']) for s in blunders)}, {f2(left(blunder))} left",
+     "Most points left on the bench" + (" (tie)" if len(blunders) > 1 else "")),
     ("Sharp shooter", f"{tn(sharp['rid'])}, {100 * sharp['pts'] / sharp['opt']:.0f}%", "Share of best possible lineup"),
     ("Luckiest win", f"{tn(lucky_win['rid'])}, {f2(lucky_win['pts'])}", f"Only the {ordinal(week_rank[lucky_win['rid']])} best score"),
     ("Heartbreaker", f"{tn(heartbreak['rid'])}, {f2(heartbreak['pts'])}", "Best score to take a loss"),
