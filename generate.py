@@ -210,6 +210,24 @@ heartbreak = min([g["l"] for g in recap], key=lambda s: week_rank[s["rid"]])
 def proj_pts(pid):
     return projections(W).get(pid, 0)
 
+# NFL game status for the preview week, so finished games count real points instead of projections
+try:
+    GAME = {}
+    for gm in get(f"/schedule/nfl/regular/{season}"):
+        if gm.get("week") == W:
+            GAME[gm["home"]] = GAME[gm["away"]] = gm.get("status", "pre_game")
+except Exception:
+    GAME = {}
+LIVE = IS_LATEST and any(v != "pre_game" for v in GAME.values())
+
+def live_pts(pid, m):
+    """Actual points if the player's game is final, actual plus half the projection if it's in progress, else projection."""
+    st = GAME.get((players.get(pid) or {}).get("team"), "pre_game")
+    actual = m.get("players_points", {}).get(pid, 0) or 0
+    if st == "complete": return actual, actual
+    if st == "in_progress": return actual + 0.5 * proj_pts(pid), actual
+    return proj_pts(pid), 0.0
+
 def phi(z):
     return 0.5 * (1 + math.erf(z / math.sqrt(2)))
 
@@ -225,7 +243,9 @@ for a, b in pairs(W):
         st_ = [p for p in x["starters"] if p and p != "0"]
         q = [f"{pname(p)} ({(players.get(p) or {}).get('injury_status')})" for p in st_
              if (players.get(p) or {}).get("injury_status")]
-        sides.append(dict(rid=x["roster_id"], proj=sum(proj_pts(p) for p in st_), q=q,
+        pts = [live_pts(p, x) if IS_LATEST else (proj_pts(p), 0.0) for p in st_]
+        sides.append(dict(rid=x["roster_id"], proj=sum(v for v, _ in pts), banked=sum(b for _, b in pts),
+                          pure=sum(proj_pts(p) for p in st_), q=q,
                           empty=len(x["starters"]) - len(st_), final=x.get("points") or 0))
     p = phi((sides[0]["proj"] - sides[1]["proj"]) / MARGIN_SD)
     sides[0]["p"], sides[1]["p"] = p, 1 - p
@@ -389,7 +409,7 @@ for i, g in enumerate(pv):
     a, b = g["a"], g["b"]
     label = "Game of the week" if i == 0 else ("Lock of the week" if i == len(pv) - 1 else "")
     rows = "".join(f"""<div class="oline">{who(s['rid'], ' &middot; ' + rec_str(s['rid']))}
-          <span class="ml">{s['ml']}</span><span class="pj">{('Final ' + f2(s['final'])) if final_preview else f"{s['proj']:.1f} proj"}</span></div>""" for s in (a, b))
+          <span class="ml">{s['ml']}</span><span class="pj">{('Final ' + f2(s['final'])) if final_preview else (f"{s['proj']:.1f} proj" + (f", {s['banked']:.1f} in" if LIVE else ""))}</span></div>""" for s in (a, b))
     extra = ""
     if final_preview:
         fav = a if a["p"] >= 0.5 else b
@@ -400,7 +420,7 @@ for i, g in enumerate(pv):
         extra = f'<p class="q">Injury watch: {E(", ".join(qs))}</p>' if qs else ""
         empties = [team[s["rid"]]["name"] for s in (a, b) if s["empty"]]
         extra += f'<p class="q">Empty lineup spots: {E(", ".join(empties))}</p>' if empties else ""
-        gaps = [(team[s["rid"]]["name"], R[s["rid"]]["strength"] - s["proj"]) for s in (a, b)]
+        gaps = [] if LIVE else [(team[s["rid"]]["name"], R[s["rid"]]["strength"] - s["pure"]) for s in (a, b)]
         gaps = [f"{E(n)} has {d:.1f} more projected points available on the bench" for n, d in gaps if d >= 3]
         extra += f'<p class="q"><b>Lineup check:</b> {"; ".join(gaps)}.</p>' if gaps else ""
     n = note("preview", g["mid"])
@@ -410,6 +430,30 @@ for i, g in enumerate(pv):
       <div class="odds">{rows}</div>
       {f'<p>{E(n)}</p>' if n else ''}{extra}
     </article>""")
+
+# ---------- game day ----------
+gameday_html = ""
+if IS_LATEST and notes.get("gameday"):
+    dogs = [(g["b"] if g["a"]["p"] >= 0.5 else g["a"], g) for g in preview]
+    upset = max(dogs, key=lambda z: z[0]["p"])
+    cards = []
+    for g in pv:
+        a, b = g["a"], g["b"]
+        fav = a if a["p"] >= 0.5 else b
+        dog = b if fav is a else a
+        tag = "Upset watch" if g is upset[1] and upset[0]["p"] >= 0.25 else ("Lock" if fav["p"] >= 0.85 else "")
+        bank = (f'<p class="q">Already in: {tn(a["rid"])} {f2(a["banked"])}, {tn(b["rid"])} {f2(b["banked"])}</p>'
+                if LIVE and (a["banked"] or b["banked"]) else "")
+        cards.append(f"""
+    <article class="gd" style="--tc:{team[fav['rid']]['color']}">
+      <div class="gdh">{avatar(a['rid'])}<span class="vs">{tn(a['rid'])} <i>vs</i> {tn(b['rid'])}</span>{avatar(b['rid'])}</div>
+      {f'<p class="tag">{tag}</p>' if tag else ''}
+      <p class="gdpick">Pick: <b>{tn(fav['rid'])}</b> <span>{100 * fav['p']:.0f}% to win, {fav['proj']:.1f} to {dog['proj']:.1f}</span></p>
+      {bank}<p>{E(note('gameday', g['mid']) or '')}</p>
+    </article>""")
+    gameday_html = (f'<section id="gameday"><h2>Game day</h2><p class="sub">Picks come from the projection model, with points already scored counted as final. '
+                    f'Commentary by Claude. Built {datetime.datetime.now(ZoneInfo("America/New_York")).strftime("%a %-I:%M %p ET")}.</p>'
+                    + "".join(cards) + "</section>")
 
 # ---------- week switcher ----------
 os.makedirs("docs/weeks", exist_ok=True)
@@ -428,7 +472,8 @@ fill = {
     "{{TITLE}}": f"{E(league['name'])}: Week {W}", "{{LEAGUE}}": E(league["name"]), "{{WEEK}}": str(W),
     "{{DONE}}": str(COMPLETED), "{{INTRO}}": intro, "{{UPDATED}}": updated, "{{STORIES}}": stories_html,
     "{{RANKS}}": "".join(rank_html), "{{RECAP}}": "".join(recap_html), "{{AWARDS}}": awards_html,
-    "{{PAIN}}": pain_html, "{{LUCK}}": "".join(luck_html), "{{PREVIEW}}": "".join(preview_html),
+    "{{PAIN}}": pain_html, "{{GAMEDAY}}": gameday_html,
+    "{{GAMEDAY_NAV}}": '<a href="#gameday">Today</a>' if gameday_html else "", "{{LUCK}}": "".join(luck_html), "{{PREVIEW}}": "".join(preview_html),
     "{{PREVIEW_SUB}}": (f"Moneylines use Sleeper's projections for each starting lineup, scored with league settings, then a normal curve with a {f2(MARGIN_SD)}-point spread on the margin, no vig. They move as lineups change."
                         if IS_LATEST else f"Lines rebuilt after the fact from Sleeper's Week {W} projections and the lineups that actually played, shown next to the final scores."), "{{PREVIEW_TITLE}}": f"Week {W} preview" if IS_LATEST else f"Week {W} lines and results",
 }

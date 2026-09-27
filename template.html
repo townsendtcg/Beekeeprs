@@ -43,7 +43,7 @@ ol.stories b{font:800 1.05rem "Bricolage Grotesque",sans-serif}
 nav.top{position:sticky;top:0;z-index:5;background:var(--wax);border-bottom:1px solid var(--line);
   padding:env(safe-area-inset-top,0px) 0 0}
 nav.top .wrap{display:flex;justify-content:space-between;gap:.1rem;padding:.4rem .75rem;overflow-x:auto;scrollbar-width:none}
-nav.top a{text-decoration:none;font-weight:700;font-size:.92rem;padding:.4rem .45rem;border-radius:4px;white-space:nowrap}
+nav.top a{text-decoration:none;font-weight:700;font-size:.9rem;padding:.4rem .35rem;border-radius:4px;white-space:nowrap}
 nav.top a:hover{background:var(--comb)}
 .wk{position:relative}
 .wk select{font:inherit;font-weight:700;font-size:.9rem;background:#FFF4CC;color:#2E1C0C;border:1px solid #C98F00;border-radius:4px;padding:.3rem .4rem}
@@ -119,6 +119,16 @@ ul.luck .who{grid-area:who} .lk{grid-area:lk;text-align:right;display:grid}
 .meter i{position:absolute;top:0;bottom:0;border-radius:5px}
 .meter i.pos{background:var(--up)} .meter i.neg{background:var(--down)}
 
+/* game day */
+.gd{background:var(--card);border-radius:8px;padding:1rem;margin-bottom:.8rem;border-top:4px solid var(--tc)}
+.gdh{display:flex;align-items:center;gap:.6rem}
+.vs{flex:1;text-align:center;font:800 1.05rem "Bricolage Grotesque",sans-serif;line-height:1.25}
+.vs i{font-style:normal;color:var(--muted);font-weight:500;font-size:.85rem;margin:0 .15rem}
+.gd .tag{margin:.7rem 0 0!important}
+.gdpick{margin:.6rem 0 0;font-size:1.05rem}
+.gdpick span{color:var(--muted);font-size:.88rem;margin-left:.25rem}
+.gd p{margin:.4rem 0 0}
+
 /* preview */
 .pick{padding:1rem 0;border-top:1px solid var(--line)}
 .pick p{margin:.4rem 0 0}
@@ -139,9 +149,10 @@ footer{max-width:46rem;margin:0 auto;padding:0 1.25rem 3rem;color:var(--muted);f
   <ol class="stories">{{STORIES}}</ol>
 </div></header>
 <nav class="top" aria-label="Sections"><div class="wrap">
-  <a href="#rankings">Rankings</a><a href="#recap">Recap</a><a href="#bench">Bench</a><a href="#luck">Luck</a><a href="#preview">Preview</a>
+  {{GAMEDAY_NAV}}<a href="#rankings">Ranks</a><a href="#recap">Recap</a><a href="#bench">Bench</a><a href="#luck">Luck</a><a href="#preview">Odds</a>
 </div></nav>
 <main>
+  {{GAMEDAY}}
   <section id="rankings">
     <h2>Power rankings</h2>
     <p class="sub">25% all-play win rate, 25% scoring (last 3 weeks count double), 20% actual win rate, 20% projected strength for Week {{WEEK}}, 10% points against (a tougher schedule gets a small bump). Projected strength is the best lineup each full roster can field this week, so byes and injuries count and a team getting healthy gets credit.</p>
