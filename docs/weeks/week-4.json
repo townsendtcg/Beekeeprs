@@ -1,0 +1,240 @@
+{
+  "preview_week": 4,
+  "completed_week": 3,
+  "rankings": {
+    "EZ-Bee-Z": {
+      "w": 1,
+      "l": 2,
+      "t": 0,
+      "pf": 305.9,
+      "pa": 313.36,
+      "apw": 9,
+      "apl": 18,
+      "score": 0.3258,
+      "xw": 1.0,
+      "strength": 101.45,
+      "luck": 0.0,
+      "rank": 9
+    },
+    "Mayo Clinic": {
+      "w": 1,
+      "l": 2,
+      "t": 0,
+      "pf": 288.7,
+      "pa": 342.1,
+      "apw": 4,
+      "apl": 23,
+      "score": 0.2947,
+      "xw": 0.4444,
+      "strength": 108.4,
+      "luck": 0.5556,
+      "rank": 10
+    },
+    "Mr. Facilitator": {
+      "w": 1,
+      "l": 2,
+      "t": 0,
+      "pf": 342.3,
+      "pa": 312.8,
+      "apw": 11,
+      "apl": 16,
+      "score": 0.4323,
+      "xw": 1.2222,
+      "strength": 125.96,
+      "luck": -0.2222,
+      "rank": 5
+    },
+    "Yugi (2nd Tower of Mayo)": {
+      "w": 1,
+      "l": 2,
+      "t": 0,
+      "pf": 293.7,
+      "pa": 376.76,
+      "apw": 8,
+      "apl": 19,
+      "score": 0.3835,
+      "xw": 0.8889,
+      "strength": 123.37,
+      "luck": 0.1111,
+      "rank": 8
+    },
+    "Butter Boys": {
+      "w": 2,
+      "l": 1,
+      "t": 0,
+      "pf": 413.42,
+      "pa": 373.7,
+      "apw": 21,
+      "apl": 6,
+      "score": 0.618,
+      "xw": 2.3333,
+      "strength": 114.05,
+      "luck": -0.3333,
+      "rank": 3
+    },
+    "The Meatsticks": {
+      "w": 1,
+      "l": 2,
+      "t": 0,
+      "pf": 334.48,
+      "pa": 322.78,
+      "apw": 12,
+      "apl": 15,
+      "score": 0.4742,
+      "xw": 1.3333,
+      "strength": 138.96,
+      "luck": -0.3333,
+      "rank": 4
+    },
+    "Trust the process": {
+      "w": 1,
+      "l": 2,
+      "t": 0,
+      "pf": 350.98,
+      "pa": 364.26,
+      "apw": 13,
+      "apl": 14,
+      "score": 0.4267,
+      "xw": 1.4444,
+      "strength": 110.32,
+      "luck": -0.4444,
+      "rank": 6
+    },
+    "2-1": {
+      "w": 2,
+      "l": 1,
+      "t": 0,
+      "pf": 302.78,
+      "pa": 354.8,
+      "apw": 7,
+      "apl": 20,
+      "score": 0.4059,
+      "xw": 0.7778,
+      "strength": 110.27,
+      "luck": 1.2222,
+      "rank": 7
+    },
+    "KINGS LANDING 🏆": {
+      "w": 2,
+      "l": 1,
+      "t": 0,
+      "pf": 449.14,
+      "pa": 406.88,
+      "apw": 23,
+      "apl": 4,
+      "score": 0.7332,
+      "xw": 2.5556,
+      "strength": 138.87,
+      "luck": -0.5556,
+      "rank": 2
+    },
+    "The Fellowship": {
+      "w": 3,
+      "l": 0,
+      "t": 0,
+      "pf": 513.08,
+      "pa": 427.04,
+      "apw": 27,
+      "apl": 0,
+      "score": 0.9058,
+      "xw": 3.0,
+      "strength": 148.09,
+      "luck": 0.0,
+      "rank": 1
+    }
+  },
+  "optimal": {
+    "EZ-Bee-Z": {
+      "actual": 117.22,
+      "best": 133.52
+    },
+    "Mr. Facilitator": {
+      "actual": 113.64,
+      "best": 117.14
+    },
+    "KINGS LANDING 🏆": {
+      "actual": 139.16,
+      "best": 171.86
+    },
+    "Mayo Clinic": {
+      "actual": 99.2,
+      "best": 125.16
+    },
+    "The Meatsticks": {
+      "actual": 120.94,
+      "best": 177.14
+    },
+    "Yugi (2nd Tower of Mayo)": {
+      "actual": 77.64,
+      "best": 117.04
+    },
+    "Butter Boys": {
+      "actual": 123.98,
+      "best": 135.18
+    },
+    "Trust the process": {
+      "actual": 105.86,
+      "best": 126.82
+    },
+    "The Fellowship": {
+      "actual": 178.1,
+      "best": 190.64
+    },
+    "2-1": {
+      "actual": 109.4,
+      "best": 137.94
+    }
+  },
+  "preview": [
+    {
+      "Mr. Facilitator": {
+        "proj": 118.8,
+        "ml": "+258"
+      },
+      "KINGS LANDING 🏆": {
+        "proj": 138.7,
+        "ml": "-258"
+      }
+    },
+    {
+      "EZ-Bee-Z": {
+        "proj": 99.5,
+        "ml": "+642"
+      },
+      "The Meatsticks": {
+        "proj": 137.1,
+        "ml": "-642"
+      }
+    },
+    {
+      "Mayo Clinic": {
+        "proj": 107.5,
+        "ml": "-107"
+      },
+      "Butter Boys": {
+        "proj": 106.2,
+        "ml": "+107"
+      }
+    },
+    {
+      "Yugi (2nd Tower of Mayo)": {
+        "proj": 110.0,
+        "ml": "+663"
+      },
+      "The Fellowship": {
+        "proj": 148.1,
+        "ml": "-663"
+      }
+    },
+    {
+      "Trust the process": {
+        "proj": 110.2,
+        "ml": "-166"
+      },
+      "2-1": {
+        "proj": 99.5,
+        "ml": "+166"
+      }
+    }
+  ]
+}
