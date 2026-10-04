@@ -10,9 +10,9 @@
       "pa": 313.36,
       "apw": 9,
       "apl": 18,
-      "score": 0.3245,
+      "score": 0.3302,
       "xw": 1.0,
-      "strength": 101.48,
+      "strength": 104.05,
       "luck": 0.0,
       "rank": 9
     },
@@ -24,9 +24,9 @@
       "pa": 342.1,
       "apw": 4,
       "apl": 23,
-      "score": 0.29,
+      "score": 0.2912,
       "xw": 0.4444,
-      "strength": 107.43,
+      "strength": 108.25,
       "luck": 0.5556,
       "rank": 10
     },
@@ -38,9 +38,9 @@
       "pa": 312.8,
       "apw": 11,
       "apl": 16,
-      "score": 0.4244,
+      "score": 0.4215,
       "xw": 1.2222,
-      "strength": 124.63,
+      "strength": 123.77,
       "luck": -0.2222,
       "rank": 6
     },
@@ -52,9 +52,9 @@
       "pa": 376.76,
       "apw": 8,
       "apl": 19,
-      "score": 0.3817,
+      "score": 0.3768,
       "xw": 0.8889,
-      "strength": 124.29,
+      "strength": 122.64,
       "luck": 0.1111,
       "rank": 8
     },
@@ -66,9 +66,9 @@
       "pa": 373.7,
       "apw": 21,
       "apl": 6,
-      "score": 0.6301,
+      "score": 0.6317,
       "xw": 2.3333,
-      "strength": 119.92,
+      "strength": 120.84,
       "luck": -0.3333,
       "rank": 3
     },
@@ -80,9 +80,9 @@
       "pa": 322.78,
       "apw": 12,
       "apl": 15,
-      "score": 0.4696,
+      "score": 0.4713,
       "xw": 1.3333,
-      "strength": 139.59,
+      "strength": 140.45,
       "luck": -0.3333,
       "rank": 4
     },
@@ -94,9 +94,9 @@
       "pa": 364.26,
       "apw": 13,
       "apl": 14,
-      "score": 0.4315,
+      "score": 0.4285,
       "xw": 1.4444,
-      "strength": 113.17,
+      "strength": 112.31,
       "luck": -0.4444,
       "rank": 5
     },
@@ -108,9 +108,9 @@
       "pa": 354.8,
       "apw": 7,
       "apl": 20,
-      "score": 0.4045,
+      "score": 0.4025,
       "xw": 0.7778,
-      "strength": 110.69,
+      "strength": 110.22,
       "luck": 1.2222,
       "rank": 7
     },
@@ -122,9 +122,9 @@
       "pa": 406.88,
       "apw": 23,
       "apl": 4,
-      "score": 0.7357,
+      "score": 0.7371,
       "xw": 2.5556,
-      "strength": 142.24,
+      "strength": 142.97,
       "luck": -0.5556,
       "rank": 2
     },
@@ -136,9 +136,9 @@
       "pa": 427.04,
       "apw": 27,
       "apl": 0,
-      "score": 0.9081,
+      "score": 0.9092,
       "xw": 3.0,
-      "strength": 151.86,
+      "strength": 152.43,
       "luck": 0.0,
       "rank": 1
     }
@@ -146,7 +146,7 @@
   "optimal": {
     "EZ-Bee-Z": {
       "actual": 117.22,
-      "best": 135.82
+      "best": 133.52
     },
     "Mr. Facilitator": {
       "actual": 113.64,
@@ -188,52 +188,52 @@
   "preview": [
     {
       "Mr. Facilitator": {
-        "proj": 107.0,
-        "ml": "+567"
+        "proj": 123.8,
+        "ml": "+250"
       },
       "KINGS LANDING 🏆": {
-        "proj": 142.2,
-        "ml": "-567"
+        "proj": 143.0,
+        "ml": "-250"
       }
     },
     {
       "EZ-Bee-Z": {
-        "proj": 101.5,
-        "ml": "+638"
+        "proj": 94.2,
+        "ml": "+1106"
       },
       "The Meatsticks": {
-        "proj": 138.9,
-        "ml": "-638"
+        "proj": 141.3,
+        "ml": "-1106"
       }
     },
     {
       "Mayo Clinic": {
-        "proj": 106.7,
-        "ml": "+167"
+        "proj": 114.6,
+        "ml": "-120"
       },
       "Butter Boys": {
-        "proj": 117.6,
-        "ml": "-167"
+        "proj": 110.8,
+        "ml": "+120"
       }
     },
     {
       "Yugi (2nd Tower of Mayo)": {
-        "proj": 108.1,
-        "ml": "+909"
+        "proj": 118.5,
+        "ml": "+527"
       },
       "The Fellowship": {
-        "proj": 151.9,
-        "ml": "-909"
+        "proj": 152.4,
+        "ml": "-527"
       }
     },
     {
       "Trust the process": {
-        "proj": 113.2,
-        "ml": "-135"
+        "proj": 112.2,
+        "ml": "-335"
       },
       "2-1": {
-        "proj": 106.8,
-        "ml": "+135"
+        "proj": 87.1,
+        "ml": "+335"
       }
     }
   ]
