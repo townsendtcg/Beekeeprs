@@ -10,11 +10,11 @@
       "pa": 640.76,
       "apw": 10,
       "apl": 35,
-      "score": 0.2852,
+      "score": 0.2813,
       "xw": 1.1111,
-      "strength": 101.19,
+      "strength": 101.44,
       "luck": -0.1111,
-      "rank": 9
+      "rank": 10
     },
     "Health & Wellness": {
       "w": 3,
@@ -24,9 +24,9 @@
       "pa": 578.14,
       "apw": 14,
       "apl": 31,
-      "score": 0.4093,
+      "score": 0.4059,
       "xw": 1.5556,
-      "strength": 103.08,
+      "strength": 103.41,
       "luck": 1.4444,
       "rank": 7
     },
@@ -38,9 +38,9 @@
       "pa": 589.68,
       "apw": 25,
       "apl": 20,
-      "score": 0.5497,
+      "score": 0.5458,
       "xw": 2.7778,
-      "strength": 138.72,
+      "strength": 136.33,
       "luck": -0.7778,
       "rank": 4
     },
@@ -52,11 +52,11 @@
       "pa": 636.98,
       "apw": 9,
       "apl": 36,
-      "score": 0.2636,
+      "score": 0.2838,
       "xw": 1.0,
-      "strength": 99.08,
+      "strength": 109.15,
       "luck": 0.0,
-      "rank": 10
+      "rank": 9
     },
     "Butter Boys": {
       "w": 2,
@@ -66,9 +66,9 @@
       "pa": 654.22,
       "apw": 29,
       "apl": 16,
-      "score": 0.5242,
+      "score": 0.5263,
       "xw": 3.2222,
-      "strength": 116.51,
+      "strength": 118.09,
       "luck": -1.2222,
       "rank": 5
     },
@@ -80,9 +80,9 @@
       "pa": 543.68,
       "apw": 30,
       "apl": 15,
-      "score": 0.653,
+      "score": 0.659,
       "xw": 3.3333,
-      "strength": 148.13,
+      "strength": 149.0,
       "luck": -0.3333,
       "rank": 3
     },
@@ -94,13 +94,13 @@
       "pa": 552.66,
       "apw": 23,
       "apl": 22,
-      "score": 0.4856,
+      "score": 0.4787,
       "xw": 2.5556,
-      "strength": 108.16,
+      "strength": 106.72,
       "luck": 0.4444,
       "rank": 6
     },
-    "2-1": {
+    "2-3": {
       "w": 2,
       "l": 3,
       "t": 0,
@@ -108,9 +108,9 @@
       "pa": 597.04,
       "apw": 11,
       "apl": 34,
-      "score": 0.3698,
+      "score": 0.3617,
       "xw": 1.2222,
-      "strength": 114.26,
+      "strength": 111.93,
       "luck": 0.7778,
       "rank": 8
     },
@@ -122,9 +122,9 @@
       "pa": 677.36,
       "apw": 33,
       "apl": 12,
-      "score": 0.6727,
+      "score": 0.6694,
       "xw": 3.6667,
-      "strength": 141.46,
+      "strength": 139.14,
       "luck": -0.6667,
       "rank": 2
     },
@@ -136,9 +136,9 @@
       "pa": 613.7,
       "apw": 41,
       "apl": 4,
-      "score": 0.7927,
+      "score": 0.7939,
       "xw": 4.5556,
-      "strength": 130.36,
+      "strength": 130.62,
       "luck": 0.4444,
       "rank": 1
     }
@@ -172,13 +172,13 @@
       "actual": 119.56,
       "best": 124.86
     },
-    "2-1": {
+    "2-3": {
       "actual": 118.72,
       "best": 123.22
     },
     "Trust the process": {
       "actual": 133.52,
-      "best": 153.04
+      "best": 157.04
     },
     "Yugi (Offline until 2029)": {
       "actual": 92.12,
@@ -188,52 +188,52 @@
   "preview": [
     {
       "Mr. Facilitator (Mayo Jr)": {
-        "proj": 126.1,
-        "ml": "-5433"
+        "proj": 123.7,
+        "ml": "-3068"
       },
       "Butter Boys": {
-        "proj": 54.9,
-        "ml": "+5433"
+        "proj": 60.5,
+        "ml": "+3068"
       }
     },
     {
       "The Meatsticks": {
-        "proj": 146.4,
-        "ml": "-272"
+        "proj": 147.0,
+        "ml": "-218"
       },
       "The Fellowship": {
-        "proj": 125.4,
-        "ml": "+272"
+        "proj": 130.6,
+        "ml": "+218"
       }
     },
     {
-      "2-1": {
-        "proj": 104.0,
-        "ml": "+638"
+      "2-3": {
+        "proj": 111.9,
+        "ml": "+372"
       },
       "KINGS LANDING 🏆": {
-        "proj": 141.5,
-        "ml": "-638"
+        "proj": 139.1,
+        "ml": "-372"
       }
     },
     {
       "EZ-Bee-Z": {
-        "proj": 101.2,
-        "ml": "-310"
+        "proj": 101.4,
+        "ml": "+125"
       },
       "Trust the process": {
-        "proj": 77.6,
-        "ml": "+310"
+        "proj": 106.2,
+        "ml": "-125"
       }
     },
     {
       "Health & Wellness": {
-        "proj": 101.9,
-        "ml": "-116"
+        "proj": 102.1,
+        "ml": "+123"
       },
       "Yugi (Offline until 2029)": {
-        "proj": 98.6,
-        "ml": "+116"
+        "proj": 106.6,
+        "ml": "-123"
       }
     }
   ]
