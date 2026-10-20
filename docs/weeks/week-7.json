@@ -1,0 +1,240 @@
+{
+  "preview_week": 7,
+  "completed_week": 6,
+  "rankings": {
+    "EZ-Bee-Z": {
+      "w": 1,
+      "l": 5,
+      "t": 0,
+      "pf": 565.74,
+      "pa": 771.88,
+      "apw": 10,
+      "apl": 44,
+      "score": 0.2726,
+      "xw": 1.1111,
+      "strength": 103.21,
+      "luck": -0.1111,
+      "rank": 10
+    },
+    "Health & Wellness": {
+      "w": 3,
+      "l": 3,
+      "t": 0,
+      "pf": 626.78,
+      "pa": 672.88,
+      "apw": 15,
+      "apl": 39,
+      "score": 0.3849,
+      "xw": 1.6667,
+      "strength": 105.5,
+      "luck": 1.3333,
+      "rank": 8
+    },
+    "Mr. Facilitator (Freed)": {
+      "w": 2,
+      "l": 4,
+      "t": 0,
+      "pf": 726.0,
+      "pa": 683.34,
+      "apw": 27,
+      "apl": 27,
+      "score": 0.5132,
+      "xw": 3.0,
+      "strength": 137.3,
+      "luck": -1.0,
+      "rank": 6
+    },
+    "Yugi (Offline until 2029)": {
+      "w": 2,
+      "l": 4,
+      "t": 0,
+      "pf": 569.32,
+      "pa": 723.28,
+      "apw": 13,
+      "apl": 41,
+      "score": 0.3849,
+      "xw": 1.4444,
+      "strength": 132.17,
+      "luck": 0.5556,
+      "rank": 7
+    },
+    "Butter Boys": {
+      "w": 3,
+      "l": 3,
+      "t": 0,
+      "pf": 745.2,
+      "pa": 746.66,
+      "apw": 32,
+      "apl": 22,
+      "score": 0.5263,
+      "xw": 3.5556,
+      "strength": 118.1,
+      "luck": -0.5556,
+      "rank": 5
+    },
+    "The Meatsticks": {
+      "w": 4,
+      "l": 2,
+      "t": 0,
+      "pf": 781.8,
+      "pa": 643.46,
+      "apw": 38,
+      "apl": 16,
+      "score": 0.6546,
+      "xw": 4.2222,
+      "strength": 138.77,
+      "luck": -0.2222,
+      "rank": 2
+    },
+    "Trust the process": {
+      "w": 4,
+      "l": 2,
+      "t": 0,
+      "pf": 738.3,
+      "pa": 635.28,
+      "apw": 32,
+      "apl": 22,
+      "score": 0.5327,
+      "xw": 3.5556,
+      "strength": 108.19,
+      "luck": 0.4444,
+      "rank": 4
+    },
+    "2-3": {
+      "w": 2,
+      "l": 4,
+      "t": 0,
+      "pf": 620.06,
+      "pa": 707.64,
+      "apw": 17,
+      "apl": 37,
+      "score": 0.3255,
+      "xw": 1.8889,
+      "strength": 90.9,
+      "luck": 0.1111,
+      "rank": 9
+    },
+    "KINGS LANDING 🏆": {
+      "w": 4,
+      "l": 2,
+      "t": 0,
+      "pf": 824.76,
+      "pa": 779.64,
+      "apw": 40,
+      "apl": 14,
+      "score": 0.6326,
+      "xw": 4.4444,
+      "strength": 120.39,
+      "luck": -0.4444,
+      "rank": 3
+    },
+    "The Fellowship": {
+      "w": 5,
+      "l": 1,
+      "t": 0,
+      "pf": 891.8,
+      "pa": 725.7,
+      "apw": 46,
+      "apl": 8,
+      "score": 0.7621,
+      "xw": 5.1111,
+      "strength": 146.4,
+      "luck": -0.1111,
+      "rank": 1
+    }
+  },
+  "optimal": {
+    "Butter Boys": {
+      "actual": 93.66,
+      "best": 106.96
+    },
+    "Mr. Facilitator (Freed)": {
+      "actual": 92.44,
+      "best": 95.94
+    },
+    "The Meatsticks": {
+      "actual": 112.0,
+      "best": 126.9
+    },
+    "The Fellowship": {
+      "actual": 99.78,
+      "best": 155.44
+    },
+    "KINGS LANDING 🏆": {
+      "actual": 110.6,
+      "best": 135.9
+    },
+    "2-3": {
+      "actual": 102.28,
+      "best": 107.18
+    },
+    "Trust the process": {
+      "actual": 131.12,
+      "best": 164.72
+    },
+    "EZ-Bee-Z": {
+      "actual": 82.62,
+      "best": 121.92
+    },
+    "Yugi (Offline until 2029)": {
+      "actual": 94.74,
+      "best": 106.58
+    },
+    "Health & Wellness": {
+      "actual": 86.3,
+      "best": 102.8
+    }
+  },
+  "preview": [
+    {
+      "Mr. Facilitator (Freed)": {
+        "proj": 137.3,
+        "ml": "+118"
+      },
+      "The Fellowship": {
+        "proj": 140.8,
+        "ml": "-118"
+      }
+    },
+    {
+      "Butter Boys": {
+        "proj": 84.9,
+        "ml": "-213"
+      },
+      "2-3": {
+        "proj": 69.0,
+        "ml": "+213"
+      }
+    },
+    {
+      "The Meatsticks": {
+        "proj": 138.8,
+        "ml": "-544"
+      },
+      "Trust the process": {
+        "proj": 104.3,
+        "ml": "+544"
+      }
+    },
+    {
+      "Yugi (Offline until 2029)": {
+        "proj": 128.7,
+        "ml": "-1367"
+      },
+      "KINGS LANDING 🏆": {
+        "proj": 78.1,
+        "ml": "+1367"
+      }
+    },
+    {
+      "EZ-Bee-Z": {
+        "proj": 102.6,
+        "ml": "+115"
+      },
+      "Health & Wellness": {
+        "proj": 105.5,
+        "ml": "-115"
+      }
+    }
+  ]
+}
