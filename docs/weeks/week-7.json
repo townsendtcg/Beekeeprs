@@ -10,9 +10,9 @@
       "pa": 771.88,
       "apw": 10,
       "apl": 44,
-      "score": 0.2726,
+      "score": 0.2748,
       "xw": 1.1111,
-      "strength": 103.21,
+      "strength": 104.55,
       "luck": -0.1111,
       "rank": 10
     },
@@ -24,11 +24,11 @@
       "pa": 672.88,
       "apw": 15,
       "apl": 39,
-      "score": 0.3849,
+      "score": 0.3836,
       "xw": 1.6667,
-      "strength": 105.5,
+      "strength": 105.31,
       "luck": 1.3333,
-      "rank": 8
+      "rank": 7
     },
     "Mr. Facilitator (Freed)": {
       "w": 2,
@@ -38,9 +38,9 @@
       "pa": 683.34,
       "apw": 27,
       "apl": 27,
-      "score": 0.5132,
+      "score": 0.5155,
       "xw": 3.0,
-      "strength": 137.3,
+      "strength": 136.23,
       "luck": -1.0,
       "rank": 6
     },
@@ -52,11 +52,11 @@
       "pa": 723.28,
       "apw": 13,
       "apl": 41,
-      "score": 0.3849,
+      "score": 0.368,
       "xw": 1.4444,
-      "strength": 132.17,
+      "strength": 123.79,
       "luck": 0.5556,
-      "rank": 7
+      "rank": 8
     },
     "Butter Boys": {
       "w": 3,
@@ -66,9 +66,9 @@
       "pa": 746.66,
       "apw": 32,
       "apl": 22,
-      "score": 0.5263,
+      "score": 0.5305,
       "xw": 3.5556,
-      "strength": 118.1,
+      "strength": 119.19,
       "luck": -0.5556,
       "rank": 5
     },
@@ -80,9 +80,9 @@
       "pa": 643.46,
       "apw": 38,
       "apl": 16,
-      "score": 0.6546,
+      "score": 0.6574,
       "xw": 4.2222,
-      "strength": 138.77,
+      "strength": 137.78,
       "luck": -0.2222,
       "rank": 2
     },
@@ -94,9 +94,9 @@
       "pa": 635.28,
       "apw": 32,
       "apl": 22,
-      "score": 0.5327,
+      "score": 0.5373,
       "xw": 3.5556,
-      "strength": 108.19,
+      "strength": 110.15,
       "luck": 0.4444,
       "rank": 4
     },
@@ -108,9 +108,9 @@
       "pa": 707.64,
       "apw": 17,
       "apl": 37,
-      "score": 0.3255,
+      "score": 0.3211,
       "xw": 1.8889,
-      "strength": 90.9,
+      "strength": 90.52,
       "luck": 0.1111,
       "rank": 9
     },
@@ -122,9 +122,9 @@
       "pa": 779.64,
       "apw": 40,
       "apl": 14,
-      "score": 0.6326,
+      "score": 0.6401,
       "xw": 4.4444,
-      "strength": 120.39,
+      "strength": 122.59,
       "luck": -0.4444,
       "rank": 3
     },
@@ -136,9 +136,9 @@
       "pa": 725.7,
       "apw": 46,
       "apl": 8,
-      "score": 0.7621,
+      "score": 0.761,
       "xw": 5.1111,
-      "strength": 146.4,
+      "strength": 143.27,
       "luck": -0.1111,
       "rank": 1
     }
@@ -162,11 +162,11 @@
     },
     "KINGS LANDING 🏆": {
       "actual": 110.6,
-      "best": 135.9
+      "best": 146.56
     },
     "2-3": {
       "actual": 102.28,
-      "best": 107.18
+      "best": 110.98
     },
     "Trust the process": {
       "actual": 131.12,
@@ -174,7 +174,7 @@
     },
     "EZ-Bee-Z": {
       "actual": 82.62,
-      "best": 121.92
+      "best": 118.42
     },
     "Yugi (Offline until 2029)": {
       "actual": 94.74,
@@ -182,58 +182,58 @@
     },
     "Health & Wellness": {
       "actual": 86.3,
-      "best": 102.8
+      "best": 106.9
     }
   },
   "preview": [
     {
       "Mr. Facilitator (Freed)": {
-        "proj": 137.3,
-        "ml": "+118"
+        "proj": 136.2,
+        "ml": "+135"
       },
       "The Fellowship": {
-        "proj": 140.8,
-        "ml": "-118"
+        "proj": 142.6,
+        "ml": "-135"
       }
     },
     {
       "Butter Boys": {
-        "proj": 84.9,
-        "ml": "-213"
+        "proj": 118.9,
+        "ml": "-424"
       },
       "2-3": {
-        "proj": 69.0,
-        "ml": "+213"
+        "proj": 89.1,
+        "ml": "+424"
       }
     },
     {
       "The Meatsticks": {
-        "proj": 138.8,
-        "ml": "-544"
+        "proj": 137.4,
+        "ml": "-465"
       },
       "Trust the process": {
-        "proj": 104.3,
-        "ml": "+544"
+        "proj": 105.9,
+        "ml": "+465"
       }
     },
     {
       "Yugi (Offline until 2029)": {
-        "proj": 128.7,
-        "ml": "-1367"
+        "proj": 122.4,
+        "ml": "-114"
       },
       "KINGS LANDING 🏆": {
-        "proj": 78.1,
-        "ml": "+1367"
+        "proj": 119.6,
+        "ml": "+114"
       }
     },
     {
       "EZ-Bee-Z": {
-        "proj": 102.6,
-        "ml": "+115"
+        "proj": 103.9,
+        "ml": "+107"
       },
       "Health & Wellness": {
-        "proj": 105.5,
-        "ml": "-115"
+        "proj": 105.3,
+        "ml": "-107"
       }
     }
   ]
