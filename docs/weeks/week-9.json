@@ -1,0 +1,240 @@
+{
+  "preview_week": 9,
+  "completed_week": 8,
+  "rankings": {
+    "EZ-Bee-Z": {
+      "w": 1,
+      "l": 7,
+      "t": 0,
+      "pf": 733.2,
+      "pa": 1057.26,
+      "apw": 12,
+      "apl": 60,
+      "score": 0.2311,
+      "xw": 1.3333,
+      "strength": 92.25,
+      "luck": -0.3333,
+      "rank": 10
+    },
+    "Health & Wellness": {
+      "w": 5,
+      "l": 3,
+      "t": 0,
+      "pf": 902.78,
+      "pa": 846.02,
+      "apw": 28,
+      "apl": 44,
+      "score": 0.4723,
+      "xw": 3.1111,
+      "strength": 116.52,
+      "luck": 1.8889,
+      "rank": 7
+    },
+    "Mr. Facilitator :(": {
+      "w": 3,
+      "l": 5,
+      "t": 0,
+      "pf": 959.36,
+      "pa": 918.2,
+      "apw": 36,
+      "apl": 36,
+      "score": 0.4832,
+      "xw": 4.0,
+      "strength": 126.2,
+      "luck": -1.0,
+      "rank": 6
+    },
+    "Yugi (Offline until 2029)": {
+      "w": 3,
+      "l": 5,
+      "t": 0,
+      "pf": 774.6,
+      "pa": 981.78,
+      "apw": 21,
+      "apl": 51,
+      "score": 0.4027,
+      "xw": 2.3333,
+      "strength": 126.32,
+      "luck": 0.6667,
+      "rank": 8
+    },
+    "Butter Boys": {
+      "w": 5,
+      "l": 3,
+      "t": 0,
+      "pf": 1059.66,
+      "pa": 933.02,
+      "apw": 48,
+      "apl": 24,
+      "score": 0.5929,
+      "xw": 5.3333,
+      "strength": 120.73,
+      "luck": -0.3333,
+      "rank": 4
+    },
+    "The Meatsticks": {
+      "w": 5,
+      "l": 3,
+      "t": 0,
+      "pf": 990.7,
+      "pa": 833.26,
+      "apw": 45,
+      "apl": 27,
+      "score": 0.5933,
+      "xw": 5.0,
+      "strength": 139.55,
+      "luck": 0.0,
+      "rank": 3
+    },
+    "Trust the process": {
+      "w": 4,
+      "l": 4,
+      "t": 0,
+      "pf": 949.76,
+      "pa": 913.22,
+      "apw": 39,
+      "apl": 33,
+      "score": 0.4859,
+      "xw": 4.3333,
+      "strength": 112.35,
+      "luck": -0.3333,
+      "rank": 5
+    },
+    "Im so over this": {
+      "w": 2,
+      "l": 6,
+      "t": 0,
+      "pf": 770.12,
+      "pa": 947.72,
+      "apw": 19,
+      "apl": 53,
+      "score": 0.298,
+      "xw": 2.1111,
+      "strength": 100.99,
+      "luck": -0.1111,
+      "rank": 9
+    },
+    "KINGS LANDING 🏆": {
+      "w": 5,
+      "l": 3,
+      "t": 0,
+      "pf": 1040.74,
+      "pa": 970.54,
+      "apw": 49,
+      "apl": 23,
+      "score": 0.5982,
+      "xw": 5.4444,
+      "strength": 126.89,
+      "luck": -0.4444,
+      "rank": 2
+    },
+    "The Fellowship": {
+      "w": 7,
+      "l": 1,
+      "t": 0,
+      "pf": 1223.3,
+      "pa": 1003.2,
+      "apw": 63,
+      "apl": 9,
+      "score": 0.8086,
+      "xw": 7.0,
+      "strength": 152.57,
+      "luck": 0.0,
+      "rank": 1
+    }
+  },
+  "optimal": {
+    "Mr. Facilitator :(": {
+      "actual": 92.4,
+      "best": 132.42
+    },
+    "Im so over this": {
+      "actual": 63.86,
+      "best": 93.08
+    },
+    "The Fellowship": {
+      "actual": 160.5,
+      "best": 181.34
+    },
+    "Trust the process": {
+      "actual": 136.54,
+      "best": 170.88
+    },
+    "Butter Boys": {
+      "actual": 166.78,
+      "best": 171.58
+    },
+    "Yugi (Offline until 2029)": {
+      "actual": 100.16,
+      "best": 121.98
+    },
+    "Health & Wellness": {
+      "actual": 114.88,
+      "best": 128.84
+    },
+    "The Meatsticks": {
+      "actual": 91.46,
+      "best": 144.46
+    },
+    "KINGS LANDING 🏆": {
+      "actual": 124.26,
+      "best": 139.06
+    },
+    "EZ-Bee-Z": {
+      "actual": 85.78,
+      "best": 111.28
+    }
+  },
+  "preview": [
+    {
+      "Mr. Facilitator :(": {
+        "proj": 122.5,
+        "ml": "-189"
+      },
+      "Trust the process": {
+        "proj": 109.1,
+        "ml": "+189"
+      }
+    },
+    {
+      "Yugi (Offline until 2029)": {
+        "proj": 123.3,
+        "ml": "-1255"
+      },
+      "Im so over this": {
+        "proj": 74.1,
+        "ml": "+1255"
+      }
+    },
+    {
+      "Health & Wellness": {
+        "proj": 116.5,
+        "ml": "+592"
+      },
+      "The Fellowship": {
+        "proj": 152.6,
+        "ml": "-592"
+      }
+    },
+    {
+      "EZ-Bee-Z": {
+        "proj": 87.4,
+        "ml": "+204"
+      },
+      "Butter Boys": {
+        "proj": 102.4,
+        "ml": "-204"
+      }
+    },
+    {
+      "The Meatsticks": {
+        "proj": 139.6,
+        "ml": "-188"
+      },
+      "KINGS LANDING 🏆": {
+        "proj": 126.2,
+        "ml": "+188"
+      }
+    }
+  ]
+}
