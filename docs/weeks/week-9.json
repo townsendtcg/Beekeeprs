@@ -10,9 +10,9 @@
       "pa": 1057.06,
       "apw": 12,
       "apl": 60,
-      "score": 0.2361,
+      "score": 0.235,
       "xw": 1.3333,
-      "strength": 98.45,
+      "strength": 100.69,
       "luck": -0.3333,
       "rank": 10
     },
@@ -24,9 +24,9 @@
       "pa": 846.46,
       "apw": 28,
       "apl": 44,
-      "score": 0.4682,
+      "score": 0.4683,
       "xw": 3.1111,
-      "strength": 117.48,
+      "strength": 118.79,
       "luck": 1.8889,
       "rank": 7
     },
@@ -38,9 +38,9 @@
       "pa": 919.0,
       "apw": 36,
       "apl": 36,
-      "score": 0.4861,
+      "score": 0.4858,
       "xw": 4.0,
-      "strength": 129.04,
+      "strength": 129.39,
       "luck": -1.0,
       "rank": 5
     },
@@ -52,9 +52,9 @@
       "pa": 982.86,
       "apw": 21,
       "apl": 51,
-      "score": 0.39,
+      "score": 0.3853,
       "xw": 2.3333,
-      "strength": 123.23,
+      "strength": 122.42,
       "luck": 0.6667,
       "rank": 8
     },
@@ -66,11 +66,11 @@
       "pa": 933.02,
       "apw": 48,
       "apl": 24,
-      "score": 0.6024,
+      "score": 0.5982,
       "xw": 5.3333,
-      "strength": 126.22,
+      "strength": 125.37,
       "luck": -0.3333,
-      "rank": 2
+      "rank": 4
     },
     "The Meatsticks": {
       "w": 5,
@@ -80,11 +80,11 @@
       "pa": 835.42,
       "apw": 45,
       "apl": 27,
-      "score": 0.6007,
+      "score": 0.6042,
       "xw": 5.0,
-      "strength": 142.97,
+      "strength": 143.65,
       "luck": 0.0,
-      "rank": 3
+      "rank": 2
     },
     "Trust the process": {
       "w": 4,
@@ -94,9 +94,9 @@
       "pa": 913.86,
       "apw": 39,
       "apl": 33,
-      "score": 0.4814,
+      "score": 0.4789,
       "xw": 4.3333,
-      "strength": 113.26,
+      "strength": 113.97,
       "luck": -0.3333,
       "rank": 6
     },
@@ -108,9 +108,9 @@
       "pa": 948.64,
       "apw": 19,
       "apl": 53,
-      "score": 0.2984,
+      "score": 0.3033,
       "xw": 2.1111,
-      "strength": 104.72,
+      "strength": 108.64,
       "luck": -0.1111,
       "rank": 9
     },
@@ -122,11 +122,11 @@
       "pa": 974.3,
       "apw": 49,
       "apl": 23,
-      "score": 0.5967,
+      "score": 0.6038,
       "xw": 5.4444,
-      "strength": 127.89,
+      "strength": 130.92,
       "luck": -0.4444,
-      "rank": 4
+      "rank": 3
     },
     "The Fellowship": {
       "w": 7,
@@ -136,9 +136,9 @@
       "pa": 1003.2,
       "apw": 63,
       "apl": 9,
-      "score": 0.8062,
+      "score": 0.8035,
       "xw": 7.0,
-      "strength": 151.24,
+      "strength": 149.14,
       "luck": 0.0,
       "rank": 1
     }
@@ -188,52 +188,52 @@
   "preview": [
     {
       "Mr. Facilitator :(": {
-        "proj": 123.7,
-        "ml": "-184"
+        "proj": 107.7,
+        "ml": "-149"
       },
       "Trust the process": {
-        "proj": 110.8,
-        "ml": "+184"
+        "proj": 99.2,
+        "ml": "+149"
       }
     },
     {
       "Yugi (Offline until 2029)": {
-        "proj": 111.9,
-        "ml": "-140"
+        "proj": 117.0,
+        "ml": "-176"
       },
       "Im so over this": {
-        "proj": 104.7,
-        "ml": "+140"
+        "proj": 105.1,
+        "ml": "+176"
       }
     },
     {
       "Health & Wellness": {
-        "proj": 117.5,
-        "ml": "+524"
+        "proj": 118.2,
+        "ml": "+555"
       },
       "The Fellowship": {
-        "proj": 151.2,
-        "ml": "-524"
+        "proj": 153.0,
+        "ml": "-555"
       }
     },
     {
       "EZ-Bee-Z": {
-        "proj": 94.5,
-        "ml": "+437"
+        "proj": 97.5,
+        "ml": "+639"
       },
       "Butter Boys": {
-        "proj": 124.9,
-        "ml": "-437"
+        "proj": 134.9,
+        "ml": "-639"
       }
     },
     {
       "The Meatsticks": {
-        "proj": 141.7,
-        "ml": "-201"
+        "proj": 139.2,
+        "ml": "-119"
       },
       "KINGS LANDING 🏆": {
-        "proj": 127.0,
-        "ml": "+201"
+        "proj": 135.5,
+        "ml": "+119"
       }
     }
   ]
